@@ -1,0 +1,71 @@
+import 'package:get/get.dart';
+import 'package:wasla_app/app/features/menu/model/menu_item_model.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/routes/app_routes.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+import 'package:wasla_app/core/strings_manager.dart';
+
+class MenuAppController extends GetxController {
+  final List<MenuItemModel> bloc1Items = [
+    MenuItemModel(
+      title: StringsManager.personalInfoText,
+      icon: AssetsManager.menuProfileIcon,
+    ),
+    MenuItemModel(
+        title: StringsManager.couponText,
+        icon: AssetsManager.menuCouponIcon,
+        route: AppRoutes.coupons),
+    MenuItemModel(
+        title: StringsManager.addressText, icon: AssetsManager.menuMapIcon),
+  ];
+  final List<MenuItemModel> bloc2Items = [
+    MenuItemModel(
+        title: StringsManager.cartText, icon: AssetsManager.menuCartIcon),
+    MenuItemModel(
+        title: StringsManager.favoriteText,
+        icon: AssetsManager.menuFavoriteIcon),
+    MenuItemModel(
+        title: StringsManager.notificationsText,
+        icon: AssetsManager.menuNotificationIcon,
+        route: AppRoutes.notification),
+    MenuItemModel(
+        title: StringsManager.paymentMethodsText,
+        icon: AssetsManager.menuPayIcon),
+  ];
+  final List<MenuItemModel> bloc3Items = [
+    MenuItemModel(
+      title: StringsManager.customerSupportText,
+      icon: AssetsManager.menuCustomerSupportIcon,
+      route: AppRoutes.customerSupport
+    ),
+    MenuItemModel(
+        title: StringsManager.faqText, icon: AssetsManager.menuFaqsIcon),
+    MenuItemModel(
+        title: StringsManager.userReviewsText,
+        icon: AssetsManager.menuUserViewsIcon),
+    MenuItemModel(
+        title: StringsManager.settingsText,
+        icon: AssetsManager.menuSettingIcon),
+  ];
+  final List<MenuItemModel> bloc4Items = [
+    MenuItemModel(
+        title: StringsManager.logoutText, icon: AssetsManager.menuLogoutIcon),
+  ];
+}
