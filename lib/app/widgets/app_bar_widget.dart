@@ -27,9 +27,10 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
+
       duration: const Duration(milliseconds: 800),
       tween: Tween(begin: 0, end: 34),
-      curve: Curves.easeOut,
+      curve: Curves.easeIn,
       builder: (context, value, child) {
         return Stack(
           alignment: Alignment.center,
@@ -58,7 +59,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   // Leading
                   Visibility(
-                    visible: showLeadingIcon,
+                    visible: Navigator.canPop(context),
                     child: PositionedDirectional(
                       start: 12.w,
                       child: leading ?? const SizedBox.shrink(),

@@ -65,7 +65,7 @@ class InputAreaWidget extends StatelessWidget {
                     child: SvgPicture.asset(AssetsManager.chatDocumentIcon),
                   ), SpeedDialChild(
                     onTap: (){
-                      controller.pickImage();
+                      controller.pickMedia();
                     },
                     backgroundColor: ColorManager.chatContainerColor,
                     foregroundColor: ColorManager.transparentColor,

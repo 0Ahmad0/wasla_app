@@ -77,6 +77,13 @@ dependencies:
   #For Speed Dial Buttons
   flutter_speed_dial: ^7.0.0
 
+  #For Pick Media Like WhatsApp(Single Image,Single Video,Multi Image,Multi Video,Multi Images & Videos)
+  wechat_assets_picker: ^9.5.0
+  wechat_camera_picker: ^4.3.7
+  photo_manager: ^3.6.4
+  chewie: ^1.10.0
+  video_player: ^2.9.5
+
 
 
 

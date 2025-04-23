@@ -44,5 +44,6 @@ class ThemeManager {
     ),
     iconTheme: const IconThemeData(color: ColorManager.primaryColor),
     scaffoldBackgroundColor: ColorManager.whiteColor
+
   );
 }

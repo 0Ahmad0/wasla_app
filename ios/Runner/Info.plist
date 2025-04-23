@@ -45,5 +45,21 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- 📸 Camera Access -->
+	<key>NSCameraUsageDescription</key>
+	<string>يحتاج التطبيق إلى الوصول إلى الكاميرا لالتقاط الصور والفيديو</string>
+
+	<!-- 🖼️ Photo Library Access -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>يحتاج التطبيق إلى الوصول إلى مكتبة الصور لاختيار الصور والفيديوهات</string>
+
+	<!-- 🗣️ Microphone Access -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>يحتاج التطبيق إلى الوصول إلى الميكروفون لتسجيل الصوت</string>
+
+	<!-- 🖼️ Photo Library Additions -->
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>يحتاج التطبيق إلى حفظ الصور والفيديوهات في مكتبة الصور</string>
 </dict>
 </plist>
