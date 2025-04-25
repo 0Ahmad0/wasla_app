@@ -22,7 +22,6 @@ class NotificationView extends GetView<NotificationController> {
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.notificationText,
-        leading: BackButtonWidget(),
       ),
       body: FadeInDown(
         key: UniqueKey(),

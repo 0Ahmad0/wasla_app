@@ -21,7 +21,6 @@ class CouponsView extends GetView<CouponsController> {
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.couponsText,
-        leading: BackButtonWidget(),
       ),
       body: Column(
         children: [

@@ -11,6 +11,7 @@ import 'package:wasla_app/app/features/customer_support/models/message_model.dar
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
+import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
 import '../enum/media_type.dart';
@@ -28,14 +29,19 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
   }
 
   void _openMediaViewer(List<MediaItemModel> mediaItems, int initialIndex) {
-    Get.to(() => MediaViewerView(
-          mediaItems: mediaItems,
-          initialIndex: initialIndex,
-        ));
+    Get.toNamed(
+      AppRoutes.mediaViewer,
+      arguments: {
+        'mediaItems': mediaItems,
+        'initialIndex': initialIndex,
+      },
+    );
   }
+
   Widget _buildMediaMessage(List<MediaItemModel> mediaItems) {
     return GestureDetector(
-      onTap: () => _openMediaViewer(mediaItems, 0), // افتح المعاينة عند الضغط على أي جزء
+      onTap: () => _openMediaViewer(mediaItems, 0),
+      // افتح المعاينة عند الضغط على أي جزء
       child: Column(
         children: [
           _buildMediaGrid(mediaItems),
@@ -48,6 +54,7 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
       ),
     );
   }
+
   Widget _buildMediaGrid(List<MediaItemModel> mediaItems) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +65,7 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
         ),
         8.h.height,
         GridView.builder(
-         shrinkWrap: true,
+          shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
@@ -74,21 +81,12 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
                   alignment: AlignmentDirectional.center,
                   children: [
                     _buildSingleMedia(mediaItems[index]),
-                    Positioned(
-                      child: Container(
-                        color: ColorManager.blackColor.withOpacity(.5),
-                      ),
+                    Container(
+                      color: ColorManager.blackColor.withOpacity(.5),
                     ),
-                    Text(
-                        '+${mediaItems.length - 3}',
+                    Text('+${mediaItems.length - 3}',
                         style: getRegularStyle(
-                            fontSize: 24,
-                            color: _getContentColor()
-                        )
-
-                    ),
-
-
+                            fontSize: 24, color: _getContentColor())),
                   ],
                 ),
               );
@@ -97,7 +95,6 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
             return _buildSingleMedia(mediaItems[index]);
           },
         ),
-
       ],
     );
   }
@@ -184,7 +181,7 @@ class MessageContentWidget extends GetView<CustomerSupportController> {
         return _buildTextMessage();
 
       case MessageType.image:
-        return _buildMediaMessage([message.mediaItems!.first]);
+        return _buildSingleMedia(message.mediaItems!.first);
 
       case MessageType.video:
         return _buildSingleMedia(message.mediaItems!.first);

@@ -26,7 +26,6 @@ class OtpView extends GetView<AuthController> {
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.enterOtpText,
-        leading: BackButtonWidget(),
       ),
       body: SingleChildScrollView(
         child: AppPadding(

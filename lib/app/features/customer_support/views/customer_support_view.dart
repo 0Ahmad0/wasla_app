@@ -19,7 +19,6 @@ class CustomerSupportView extends GetView<CustomerSupportController> {
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.customerSupportText,
-        leading: BackButtonWidget(),
       ),
       body: Column(
         children: [

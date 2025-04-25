@@ -11,8 +11,10 @@ abstract class AppRoutes {
   static const notification = '/notification';
   static const search = '/search';
   static const customerSupport = '/customerSupport';
+  static const mediaViewer = '/mediaViewer';
   static const profile = '/profile';
   static const coupons = '/coupons';
+  static const faqs = '/faqs';
   static const menu = '/menu';
 
 

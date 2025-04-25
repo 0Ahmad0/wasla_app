@@ -26,7 +26,6 @@ class UnKnowView extends StatelessWidget {
       appBar: AppBarWidget(
         title: StringsManager.pageNotFoundText,
         showLeadingIcon: true,
-        leading: BackButtonWidget(),
       ),
       body: AppPadding(
         child: Column(

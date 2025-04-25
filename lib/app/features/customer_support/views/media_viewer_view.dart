@@ -2,101 +2,58 @@ import 'dart:io';
 
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../../../core/color_manager.dart';
+import '../../../widgets/backbutton_widget.dart';
+import '../controllers/media_viewer_controller.dart';
 import '../enum/media_type.dart';
-import '../models/media_item_model.dart';
 
-class MediaViewerView extends StatefulWidget {
-  final List<MediaItemModel> mediaItems;
-  final int initialIndex;
-
-  const MediaViewerView({
-    super.key,
-    required this.mediaItems,
-    required this.initialIndex,
-  });
-
-  @override
-  _MediaViewerPageState createState() => _MediaViewerPageState();
-}
-
-class _MediaViewerPageState extends State<MediaViewerView> {
-  late PageController _pageController;
-  late int _currentIndex;
-  final Map<String, ChewieController> _videoControllers = {};
-
-  @override
-  void initState() {
-    super.initState();
-    _currentIndex = widget.initialIndex;
-    _pageController = PageController(initialPage: widget.initialIndex);
-    _initializeCurrentVideo();
-  }
-
-  void _initializeCurrentVideo() {
-    final currentMedia = widget.mediaItems[_currentIndex];
-    if (currentMedia.type == MediaType.video) {
-      _initVideoController(currentMedia);
-    }
-  }
-
-  void _initVideoController(MediaItemModel media) {
-    if (_videoControllers.containsKey(media.filePath)) return;
-
-    final videoController = VideoPlayerController.file(File(media.filePath));
-    final chewieController = ChewieController(
-      videoPlayerController: videoController,
-      autoPlay: true,
-      looping: true,
-      showControls: true,
-    );
-
-    _videoControllers[media.filePath] = chewieController;
-  }
+class MediaViewerView extends GetView<MediaViewerController> {
+  const MediaViewerView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView.builder(
-        controller: _pageController,
-        onPageChanged: (index) {
-          // إيقاف الفيديو السابق
-          _videoControllers.values.forEach((c) => c.pause());
-
-          setState(() => _currentIndex = index);
-
-          // تشغيل الفيديو الجديد إذا كان موجوداً
-          final newMedia = widget.mediaItems[index];
-          if (newMedia.type == MediaType.video) {
-            _initVideoController(newMedia);
-            _videoControllers[newMedia.filePath]?.play();
-          }
-        },
+      appBar: AppBar(
+        leading: Padding(
+          padding: EdgeInsets.all(8.sp),
+          child: const BackButtonWidget(),
+        ),
+        backgroundColor: ColorManager.blackColor,
+      ),
+      backgroundColor: ColorManager.blackColor,
+      body: Obx(() => PageView.builder(
+        controller: controller.pageController,
+        onPageChanged: controller.onPageChanged,
+        itemCount: controller.mediaItems.length,
         itemBuilder: (context, index) {
-          final media = widget.mediaItems[index];
+          final media = controller.mediaItems[index];
           if (media.type == MediaType.video) {
-            return Chewie(
-              controller: _videoControllers[media.filePath]!,
+            final chewieController = controller.videoControllers[media.filePath];
+
+
+            return Stack(
+              alignment: AlignmentDirectional.center,
+              children: [
+                AspectRatio(
+                  aspectRatio: chewieController?.videoPlayerController.value.aspectRatio ?? 1,
+                  child: VideoPlayer(chewieController!.videoPlayerController),
+                ),
+                Chewie(controller: chewieController),
+              ],
             );
           } else {
-            return InteractiveViewer(
-                child: Image.file(
+            return Image.file(
               File(media.filePath),
-            ));
+              fit: BoxFit.contain,
+            );
           }
         },
-      ),
+      )),
     );
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    _videoControllers.values.forEach((c) {
-      c.videoPlayerController.dispose();
-      c.dispose();
-    });
-    super.dispose();
   }
 }

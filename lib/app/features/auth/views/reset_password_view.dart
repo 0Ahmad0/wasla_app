@@ -25,7 +25,6 @@ class ResetPasswordView extends GetView<AuthController> {
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.resetPasswordText,
-        leading: BackButtonWidget(),
       ),
 
       body: SingleChildScrollView(

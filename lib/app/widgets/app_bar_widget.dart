@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wasla_app/app/features/auth/views/login_view.dart';
+import 'package:wasla_app/app/widgets/backbutton_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String title;
-  final Widget? leading;
   final List<Widget>? actions;
   final double height;
   final bool showLeadingIcon;
@@ -15,7 +15,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({
     super.key,
     required this.title,
-    this.leading,
     this.actions,
     this.height = 130,
      this.showLeadingIcon = true,
@@ -62,7 +61,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     visible: Navigator.canPop(context),
                     child: PositionedDirectional(
                       start: 12.w,
-                      child: leading ?? const SizedBox.shrink(),
+                      child: BackButtonWidget() ,
                     ),
                   ),
                   // Actions

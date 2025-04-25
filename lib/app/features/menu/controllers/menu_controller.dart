@@ -27,13 +27,17 @@ class MenuAppController extends GetxController {
     MenuItemModel(
       title: StringsManager.personalInfoText,
       icon: AssetsManager.menuProfileIcon,
+      route: AppRoutes.profile,
     ),
     MenuItemModel(
-        title: StringsManager.couponText,
-        icon: AssetsManager.menuCouponIcon,
-        route: AppRoutes.coupons),
+      title: StringsManager.couponText,
+      icon: AssetsManager.menuCouponIcon,
+      route: AppRoutes.coupons,
+    ),
     MenuItemModel(
-        title: StringsManager.addressText, icon: AssetsManager.menuMapIcon),
+      title: StringsManager.addressText,
+      icon: AssetsManager.menuMapIcon,
+    ),
   ];
   final List<MenuItemModel> bloc2Items = [
     MenuItemModel(
@@ -51,12 +55,14 @@ class MenuAppController extends GetxController {
   ];
   final List<MenuItemModel> bloc3Items = [
     MenuItemModel(
-      title: StringsManager.customerSupportText,
-      icon: AssetsManager.menuCustomerSupportIcon,
-      route: AppRoutes.customerSupport
-    ),
+        title: StringsManager.customerSupportText,
+        icon: AssetsManager.menuCustomerSupportIcon,
+        route: AppRoutes.customerSupport),
     MenuItemModel(
-        title: StringsManager.faqText, icon: AssetsManager.menuFaqsIcon),
+      title: StringsManager.faqText,
+      icon: AssetsManager.menuFaqsIcon,
+      route: AppRoutes.faqs
+    ),
     MenuItemModel(
         title: StringsManager.userReviewsText,
         icon: AssetsManager.menuUserViewsIcon),
