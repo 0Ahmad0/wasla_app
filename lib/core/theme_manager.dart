@@ -37,6 +37,9 @@ class ThemeManager {
     primarySwatch: ColorManager.primaryColor.toMaterialColor(),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: ColorManager.primaryColor,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.r)
+      )
     ),
     checkboxTheme: CheckboxThemeData(
       fillColor: const WidgetStatePropertyAll(ColorManager.transparentColor),

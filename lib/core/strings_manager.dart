@@ -154,5 +154,8 @@ class StringsManager {
 نعم، يمكنك طلب استرجاع أو استبدال المنتجات في حال كانت لديك مشكلة في الطلب. يتم ذلك وفقًا للسياسات المتبعة في التطبيق.
 """;
 
+  //Address Screen
+  static const String addNewAddressText = "أضف عنوان جديد";
+  static const String myAddressText = "عناويني";
 
 }

@@ -79,21 +79,38 @@ dependencies:
 
   #For Pick Media Like WhatsApp(Single Image,Single Video,Multi Image,Multi Video,Multi Images & Videos)
   wechat_assets_picker: ^9.5.0
+
+  #For Take Image,Videos Like WhatsApp
   wechat_camera_picker: ^4.3.7
+
+  #For Video Thumbnail,...etc
   photo_manager: ^3.6.4
   chewie: ^1.10.0
   video_player: ^2.9.5
+
+  #For load Variables From .env Files
+  flutter_dotenv: ^5.2.1
+  google_maps_flutter: ^2.10.1
+  geocoding: ^3.0.0
+  intl: ^0.20.2
 
 
 
 
 dev_dependencies:
+  #For Change Default App Icon
+  flutter_launcher_icons: ^0.14.3
+
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^4.0.0
 
-
+# Flutter Icon App
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
 flutter:
 
   uses-material-design: true

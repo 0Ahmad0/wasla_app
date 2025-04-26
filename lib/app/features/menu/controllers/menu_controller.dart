@@ -37,21 +37,24 @@ class MenuAppController extends GetxController {
     MenuItemModel(
       title: StringsManager.addressText,
       icon: AssetsManager.menuMapIcon,
+      route: AppRoutes.myAddress
     ),
   ];
   final List<MenuItemModel> bloc2Items = [
     MenuItemModel(
         title: StringsManager.cartText, icon: AssetsManager.menuCartIcon),
     MenuItemModel(
-        title: StringsManager.favoriteText,
-        icon: AssetsManager.menuFavoriteIcon),
+      title: StringsManager.favoriteText,
+      icon: AssetsManager.menuFavoriteIcon,
+    ),
     MenuItemModel(
         title: StringsManager.notificationsText,
         icon: AssetsManager.menuNotificationIcon,
         route: AppRoutes.notification),
     MenuItemModel(
-        title: StringsManager.paymentMethodsText,
-        icon: AssetsManager.menuPayIcon),
+      title: StringsManager.paymentMethodsText,
+      icon: AssetsManager.menuPayIcon,
+    ),
   ];
   final List<MenuItemModel> bloc3Items = [
     MenuItemModel(
@@ -59,10 +62,9 @@ class MenuAppController extends GetxController {
         icon: AssetsManager.menuCustomerSupportIcon,
         route: AppRoutes.customerSupport),
     MenuItemModel(
-      title: StringsManager.faqText,
-      icon: AssetsManager.menuFaqsIcon,
-      route: AppRoutes.faqs
-    ),
+        title: StringsManager.faqText,
+        icon: AssetsManager.menuFaqsIcon,
+        route: AppRoutes.faqs),
     MenuItemModel(
         title: StringsManager.userReviewsText,
         icon: AssetsManager.menuUserViewsIcon),

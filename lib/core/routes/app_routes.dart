@@ -15,6 +15,8 @@ abstract class AppRoutes {
   static const profile = '/profile';
   static const coupons = '/coupons';
   static const faqs = '/faqs';
+  static const myAddress = '/myAddress';
+  static const addNewAddress = '/addNewAddress';
   static const menu = '/menu';
 
 

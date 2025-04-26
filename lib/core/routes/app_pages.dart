@@ -17,6 +17,8 @@ import 'package:wasla_app/app/features/home/bindings/home_binding.dart';
 import 'package:wasla_app/app/features/home/views/home_view.dart';
 import 'package:wasla_app/app/features/menu/bindings/menu_binding.dart';
 import 'package:wasla_app/app/features/menu/views/menu_view.dart';
+import 'package:wasla_app/app/features/my_address/bindings/my_address_binding.dart';
+import 'package:wasla_app/app/features/my_address/views/my_address_view.dart';
 import 'package:wasla_app/app/features/navbar/bindings/navbar_binding.dart';
 import 'package:wasla_app/app/features/navbar/views/navbar_view.dart';
 import 'package:wasla_app/app/features/notifications/bindings/notification_binding.dart';
@@ -26,6 +28,7 @@ import 'package:wasla_app/app/features/profile/views/profile_view.dart';
 import 'package:wasla_app/app/features/search/bindings/search_binding.dart';
 import 'package:wasla_app/app/features/search/views/search_view.dart';
 import 'package:wasla_app/app/features/unknow/views/unknow_view.dart';
+import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
 import '../../app/features/onboarding/views/onboarding_view.dart';
 import '../../app/features/splash/views/splash_view.dart';
@@ -117,6 +120,18 @@ class AppPages {
       page: () => FAQsView(),
       binding: FAQsBinding()
     ),
+     GetPage(
+      name: AppRoutes.myAddress,
+      page: () => MyAddressView(),
+      binding: MyAddressBinding()
+    ),
+    GetPage(
+      name: AppRoutes.addNewAddress,
+      page: () => AddNewAddressView(),
+      binding: MyAddressBinding()
+    ),
+
+
     GetPage(
       name: AppRoutes.unknow,
       page: () => UnKnowView(),
