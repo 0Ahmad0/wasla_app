@@ -30,11 +30,8 @@ class MyAddressView extends GetView<MyAddressController> {
               color: ColorManager.whiteColor,
             ),
           )),
-      body: ListView.builder(
-        padding: EdgeInsets.symmetric(
-          horizontal: 24.w,
-          vertical: 10.h
-        ),
+      body: Obx(()=>ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 10.h),
         itemBuilder: (context, index) {
           final address = controller.myAddressList[index];
           return MyAddressItemWidget(
@@ -43,7 +40,7 @@ class MyAddressView extends GetView<MyAddressController> {
           );
         },
         itemCount: controller.myAddressList.length,
-      ),
+      )),
     );
   }
 }
