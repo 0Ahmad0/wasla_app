@@ -177,4 +177,10 @@ class StringsManager {
   static const String themeAppText = "ثيم التطبيق";
   static const String themeDarkAppText = "الوضع الليلي";
   static const String themeLightAppText = "الوضع النهاري";
+
+  // User Review Screen
+  static const String usersReviewsText = "آراء مستخدمينا";
+
+
+
 }

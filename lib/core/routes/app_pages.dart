@@ -28,6 +28,8 @@ import 'package:wasla_app/app/features/profile/views/profile_view.dart';
 import 'package:wasla_app/app/features/search/bindings/search_binding.dart';
 import 'package:wasla_app/app/features/search/views/search_view.dart';
 import 'package:wasla_app/app/features/unknow/views/unknow_view.dart';
+import 'package:wasla_app/app/features/users_reviews/bindings/users_reviews_binding.dart';
+import 'package:wasla_app/app/features/users_reviews/views/users_reviews_view.dart';
 import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
 import '../../app/features/onboarding/views/onboarding_view.dart';
@@ -136,6 +138,11 @@ class AppPages {
       name: AppRoutes.settings,
       page: () => SettingsView(),
       binding: SettingsBinding()
+    ),
+    GetPage(
+      name: AppRoutes.usersReviews,
+      page: () => UsersReviewsView(),
+      binding: UsersReviewsBinding()
     ),
 
 

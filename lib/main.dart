@@ -35,24 +35,23 @@ class MyApp extends StatelessWidget {
         ),
         minTextAdapt: true,
         builder: (context, child) {
-          return Obx(()=>GetMaterialApp(
-            locale: const Locale('ar'),
-            title: StringsManager.appName,
-            debugShowCheckedModeBanner: false,
-            initialRoute: AppRoutes.splash,
-            getPages: AppPages.pages,
-            // unknownRoute: AppPages.pages.last,
-            defaultTransition: Transition.downToUp,
-            theme: ThemeManager.myTheme,
-            darkTheme: ThemeManager.myTheme.copyWith(
-              brightness: Brightness.dark,
-              textTheme: GoogleFonts.tajawalTextTheme(),
-
-            ),
-            themeMode: themeController.isDarkMode.value
-                ? ThemeMode.dark
-                : ThemeMode.light,
-          ));
+          return Obx(() => GetMaterialApp(
+                locale: const Locale('ar'),
+                title: StringsManager.appName,
+                debugShowCheckedModeBanner: false,
+                initialRoute: AppRoutes.splash,
+                getPages: AppPages.pages,
+                // unknownRoute: AppPages.pages.last,
+                defaultTransition: Transition.downToUp,
+                theme: ThemeManager.myTheme,
+                darkTheme: ThemeManager.myTheme.copyWith(
+                  brightness: Brightness.dark,
+                  textTheme: GoogleFonts.tajawalTextTheme(),
+                ),
+                themeMode: themeController.isDarkMode.value
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
+              ));
         });
   }
 }

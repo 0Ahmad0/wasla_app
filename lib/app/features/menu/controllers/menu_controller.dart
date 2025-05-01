@@ -65,8 +65,10 @@ class MenuAppController extends GetxController {
         icon: AssetsManager.menuFaqsIcon,
         route: AppRoutes.faqs),
     MenuItemModel(
-        title: StringsManager.userReviewsText,
-        icon: AssetsManager.menuUserViewsIcon),
+      title: StringsManager.userReviewsText,
+      icon: AssetsManager.menuUserViewsIcon,
+      route: AppRoutes.usersReviews,
+    ),
     MenuItemModel(
       title: StringsManager.settingsText,
       icon: AssetsManager.menuSettingIcon,
