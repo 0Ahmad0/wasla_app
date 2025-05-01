@@ -31,6 +31,8 @@ import 'package:wasla_app/app/features/unknow/views/unknow_view.dart';
 import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
 import '../../app/features/onboarding/views/onboarding_view.dart';
+import '../../app/features/settings/bindings/settings_binding.dart';
+import '../../app/features/settings/views/settings_view.dart';
 import '../../app/features/splash/views/splash_view.dart';
 import 'app_routes.dart';
 
@@ -129,6 +131,11 @@ class AppPages {
       name: AppRoutes.addNewAddress,
       page: () => AddNewAddressView(),
       binding: MyAddressBinding()
+    ),
+    GetPage(
+      name: AppRoutes.settings,
+      page: () => SettingsView(),
+      binding: SettingsBinding()
     ),
 
 

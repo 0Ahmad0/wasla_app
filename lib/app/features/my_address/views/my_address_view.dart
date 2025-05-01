@@ -20,7 +20,7 @@ class MyAddressView extends GetView<MyAddressController> {
       ),
       floatingActionButton: FloatingActionButton.extended(
           onPressed: () => Get.toNamed(AppRoutes.addNewAddress),
-          icon: const Icon(
+          icon:  Icon(
             Icons.add_location_alt,
             color: ColorManager.whiteColor,
           ),

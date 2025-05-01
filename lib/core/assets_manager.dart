@@ -18,6 +18,7 @@ class AssetsManager{
   static const String emailAndOtpIcon = '$_iconPath/email_and_otp_icon.png';
   static const String handLoginIcon = '$_iconPath/hand_signup_icon.png';
   static const String handSignupIcon = '$_iconPath/hand_login_icon.png';
+  static const String appIcon = '$_iconPath/app_icon.png';
 
   static const String searchIcon = '$_iconPath/search_icon.svg';
   static const String profileIcon = '$_iconPath/profile_icon.svg';

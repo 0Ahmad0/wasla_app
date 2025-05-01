@@ -158,4 +158,23 @@ class StringsManager {
   static const String addNewAddressText = "أضف عنوان جديد";
   static const String myAddressText = "عناويني";
 
+  //Add New Address Screen
+
+
+
+  //Setting Screen
+  static const String settingText = "الاعدادات";
+  static const String languageAppText = "لغة التطبيق";
+  static const String arLanguageText = "العربية";
+  static const String enLanguageText = "الانجليزية";
+  static const String notificationAppText = "الإشعارات";
+  static const String notificationAppSubtitleText = "الرسائل, الطلبات, الخصومات...";
+  static const String messagesNotificationText = "إشعارات الرسائل";
+  static const String ordersNotificationText = "إشعارات الطلبات";
+  static const String offersNotificationText = "إشعارات الخصومات";
+  static const String shareAppText = "مشاركة التطبيق";
+  static const String shareAppSubtitleText = "شارك التطبيق بنقرة زر";
+  static const String themeAppText = "ثيم التطبيق";
+  static const String themeDarkAppText = "الوضع الليلي";
+  static const String themeLightAppText = "الوضع النهاري";
 }

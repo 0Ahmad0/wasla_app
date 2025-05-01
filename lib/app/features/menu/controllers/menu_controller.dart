@@ -35,10 +35,9 @@ class MenuAppController extends GetxController {
       route: AppRoutes.coupons,
     ),
     MenuItemModel(
-      title: StringsManager.addressText,
-      icon: AssetsManager.menuMapIcon,
-      route: AppRoutes.myAddress
-    ),
+        title: StringsManager.addressText,
+        icon: AssetsManager.menuMapIcon,
+        route: AppRoutes.myAddress),
   ];
   final List<MenuItemModel> bloc2Items = [
     MenuItemModel(
@@ -69,8 +68,10 @@ class MenuAppController extends GetxController {
         title: StringsManager.userReviewsText,
         icon: AssetsManager.menuUserViewsIcon),
     MenuItemModel(
-        title: StringsManager.settingsText,
-        icon: AssetsManager.menuSettingIcon),
+      title: StringsManager.settingsText,
+      icon: AssetsManager.menuSettingIcon,
+      route: AppRoutes.settings,
+    ),
   ];
   final List<MenuItemModel> bloc4Items = [
     MenuItemModel(

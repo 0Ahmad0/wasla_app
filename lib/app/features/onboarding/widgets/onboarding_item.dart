@@ -26,13 +26,13 @@ class OnboardingItem extends StatelessWidget {
         Container(
           width: double.maxFinite,
           height: double.maxFinite,
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
             gradient: LinearGradient(
               colors: [
                 ColorManager.blackColor,
                 ColorManager.transparentColor,
               ],
-              stops: [0, 1],
+              stops: const [0, 1],
               begin: Alignment.bottomCenter,
               end: Alignment.center,
             ),

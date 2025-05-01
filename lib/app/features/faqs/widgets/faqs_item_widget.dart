@@ -33,7 +33,7 @@ class FAQsItemWidget extends StatelessWidget {
       tilePadding: EdgeInsets.symmetric(
         horizontal: 24.w,
       ),
-      shape: const RoundedRectangleBorder(
+      shape:  RoundedRectangleBorder(
           side: BorderSide(
         color: ColorManager.secondaryColor,
         width: .4,

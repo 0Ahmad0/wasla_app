@@ -83,7 +83,7 @@ dependencies:
   #For Take Image,Videos Like WhatsApp
   wechat_camera_picker: ^4.3.7
 
-  #For Video Thumbnail,...etc
+  #For Video Thumbnail And Show Photo,...etc
   photo_manager: ^3.6.4
   chewie: ^1.10.0
   video_player: ^2.9.5
@@ -102,6 +102,7 @@ dependencies:
   #For Get Current User Location
   geolocator: 13.0.4
   geolocator_android: 4.6.1
+  share_plus: ^11.0.0
 
 
 
