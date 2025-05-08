@@ -26,7 +26,7 @@ class SettingsView extends GetView<SettingsController> {
             ListTile(
               onTap: () {
                 AppBottomSheet(widget: const BottomSheetLanguageWidget())
-                    .showBottomSheet(context);
+                    .showAppBottomSheet(context);
               },
               dense: true,
               leading: const Icon(Icons.language),
@@ -36,14 +36,14 @@ class SettingsView extends GetView<SettingsController> {
                     color: ColorManager.textPrimaryColor, fontSize: 18),
               ),
               subtitle: Text(
-                StringsManager.arLanguageText,
+                Get.locale.toString().contains('ar')?StringsManager.arLanguageText:StringsManager.enLanguageText,
                 style: getLightStyle(color: ColorManager.textSecondaryColor),
               ),
             ),
             ListTile(
               onTap: () {
                 AppBottomSheet(widget: const BottomSheetNotificationsWidget())
-                    .showBottomSheet(context);
+                    .showAppBottomSheet(context);
               },
               dense: true,
               leading: const Icon(Icons.notifications_outlined),

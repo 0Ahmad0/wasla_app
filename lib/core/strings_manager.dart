@@ -180,6 +180,7 @@ class StringsManager {
 
   // User Review Screen
   static const String usersReviewsText = "آراء مستخدمينا";
+  static const String addNewReviewText = "أضف رايك عن التطبيق";
 
 
 

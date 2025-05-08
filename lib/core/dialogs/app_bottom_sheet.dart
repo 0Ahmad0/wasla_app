@@ -10,7 +10,7 @@ class AppBottomSheet {
     this.widget,
   });
 
-  void showBottomSheet(BuildContext context) {
+  void showAppBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (context) => widget ?? const SizedBox.shrink(),

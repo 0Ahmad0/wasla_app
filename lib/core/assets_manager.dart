@@ -48,6 +48,10 @@ class AssetsManager{
 
 
 
-  static const String loadingScanPlantIMG = '$_lottiePath/';
+  static const String angryIMG = '$_lottiePath/angry.json';
+  static const String happyIMG = '$_lottiePath/happy.json';
+  static const String sadIMG = '$_lottiePath/sad.json';
+  static const String veryHappyIMG = '$_lottiePath/very_happy.json';
+  static const String normalIMG = '$_lottiePath/normal.json';
 
 }

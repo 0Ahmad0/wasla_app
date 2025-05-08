@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SettingsController extends GetxController{
@@ -18,8 +19,7 @@ class SettingsController extends GetxController{
 
   void changeLanguage(String langCode) {
     selectedLanguage.value = langCode;
-    // هنا يمكنك أيضًا تغيير اللغة في التطبيق باستخدام Get.updateLocale
-    // Get.updateLocale(Locale(langCode));
+    Get.updateLocale(Locale(langCode));
     Get.back();
   }
 

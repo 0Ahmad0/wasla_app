@@ -13,6 +13,8 @@ import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/style_manager.dart';
 import '../controllers/my_address_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LocationDialogPickerWidget extends GetView<MyAddressController> {
   const LocationDialogPickerWidget({super.key});
@@ -26,8 +28,9 @@ class LocationDialogPickerWidget extends GetView<MyAddressController> {
           options: MapOptions(
             backgroundColor: ColorManager.chatContainerColor,
             initialCenter: controller.selectedLocation.value!,
-            initialZoom: 14.0,
+            initialZoom: 16.0,
             onTap: (_, latLng) => controller.updateLocation(latLng),
+
           ),
           children: [
             TileLayer(

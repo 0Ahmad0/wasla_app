@@ -26,7 +26,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="wasla_app">
+        android:label="Wasla">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -64,7 +64,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 <!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="AIzaSyDfh1zF-9PuvnD0Gp0rQ6-ZWTMo1M2kJmA"/>-->
+<!--            android:value="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"/>-->
     </application>
     <queries>
         <intent>

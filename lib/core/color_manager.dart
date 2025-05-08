@@ -24,6 +24,7 @@ class ColorManager{
   static const Color unKnowBackgroundColor = Color(0xffFFF2F2);
   static const Color chatContainerColor = Color(0xffF9FAFB);
   static const Color chatContainerDownloadIconColor = Color(0xff374151);
+  static const Color ratingColor = Color(0xffFF9529);
 
 
   static const Color border = Color(0xFFCCE5E6);

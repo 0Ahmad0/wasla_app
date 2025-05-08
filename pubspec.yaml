@@ -90,7 +90,7 @@ dependencies:
 
   #For load Variables From .env Files
   flutter_dotenv: ^5.2.1
-  #  google_maps_flutter: ^2.10.1
+#  google_maps_flutter: ^2.10.1
 
   #For Format DateTime
   intl: ^0.20.2
@@ -103,6 +103,7 @@ dependencies:
   geolocator: 13.0.4
   geolocator_android: 4.6.1
   share_plus: ^11.0.0
+  flutter_rating_bar: ^4.0.1
 
 
 

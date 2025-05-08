@@ -5,8 +5,13 @@ import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/users_reviews/controllers/users_reviews_controller.dart';
 import 'package:wasla_app/app/features/users_reviews/widgets/user_reveiw_item_widget.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
+import 'package:wasla_app/core/dialogs/app_dialog.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
+
+import '../../../../core/color_manager.dart';
+import '../../../../core/style_manager.dart';
+import '../widgets/user_add_rating_dialog.dart';
 
 class UsersReviewsView extends GetView<UsersReviewsController> {
   const UsersReviewsView({super.key});
@@ -14,7 +19,22 @@ class UsersReviewsView extends GetView<UsersReviewsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarWidget(
+      floatingActionButton: FloatingActionButton.extended(
+          onPressed: () => AppDialog(
+            widget: UserAddRatingDialog()
+          ).showAppDialog(context),
+          icon:  Icon(
+            Icons.add_reaction,
+            color: ColorManager.whiteColor,
+          ),
+          label: Text(
+            StringsManager.addNewReviewText,
+            style: getRegularStyle(
+              color: ColorManager.whiteColor,
+            ),
+          )),
+
+      appBar: const AppBarWidget(
         title: StringsManager.usersReviewsText,
       ),
       body: ListView.separated(

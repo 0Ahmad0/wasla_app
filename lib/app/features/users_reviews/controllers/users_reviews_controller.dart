@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 
 import '../model/user_review_model.dart';
 
-class UsersReviewsController extends GetxController{
+class UsersReviewsController extends GetxController {
   final RxList<UserReviewModel> userReviews = <UserReviewModel>[
     UserReviewModel(
       name: "أحمد العلي",
@@ -36,5 +38,37 @@ class UsersReviewsController extends GetxController{
       rating: 4,
     ),
   ].obs;
+  final rateKey = GlobalKey<FormState>();
+  final reteTextController = TextEditingController();
 
+  RxDouble rating = 2.0.obs;
+
+  String getEmojiIcon() {
+    switch (rating.value) {
+      case 1.0:
+        return AssetsManager.angryIMG;
+      case 2.0:
+        return AssetsManager.sadIMG;
+      case 3.0:
+        return AssetsManager.happyIMG;
+      case 4.0:
+        return AssetsManager.normalIMG;
+      case 5.0:
+        return AssetsManager.veryHappyIMG;
+      default:
+        return '';
+    }
+  }
+
+  void onRatingUpdate(double rate) {
+    rating.value = rate;
+    print(rating.value);
+    print(getEmojiIcon());
+  }
+
+  @override
+  void onClose() {
+    reteTextController.dispose();
+    super.onClose();
+  }
 }

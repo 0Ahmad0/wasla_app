@@ -1,14 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wasla_app/app/features/users_reviews/model/user_review_model.dart';
+import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/style_manager.dart';
-import 'package:wasla_app/main.dart';
-
 class UserReviewItemWidget extends StatelessWidget {
   const UserReviewItemWidget({super.key, required this.userReview});
 
@@ -27,12 +26,28 @@ class UserReviewItemWidget extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(
-                radius: 30.sp,
-                backgroundColor: ColorManager.secondaryColor.withOpacity(.25),
+              Container(
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                width: 60.sp,
+                height: 60.sp,
+                decoration: BoxDecoration(
+                  color: ColorManager.secondaryColor.withOpacity(.25),
+                  shape: BoxShape.circle,
+                ),
                 child: userReview.userImage == null
-                    ? SvgPicture.asset(AssetsManager.profileIcon)
-                    : Image.asset(userReview.userImage!),
+                    ? AppPadding(
+                        hPadding: 6,
+                        vPadding: 6,
+                        child: SvgPicture.asset(
+                          AssetsManager.profileIcon,
+                        ),
+                      )
+                    : Image.asset(
+                        width: 60.sp,
+                        height: 60.sp,
+                        userReview.userImage!,
+                        fit: BoxFit.cover,
+                      ),
               ),
               16.w.width,
               Flexible(
@@ -73,10 +88,9 @@ class UserReviewItemWidget extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 2.w),
                 decoration: ShapeDecoration(
                   color: index < (userReview.rating ?? 0)
-                      // color: Color(0xffFDCC0D),
-                      // color: Color(0xffFFDF00),
-                      ? const Color(0xffFF9529) // نجمة برتقالية
-                      : ColorManager.notificationDateTimeGrayColor.withOpacity(.5), // نجمة رمادية
+                      ? ColorManager.ratingColor // نجمة برتقالية
+                      : ColorManager.notificationDateTimeGrayColor
+                          .withOpacity(.5), // نجمة رمادية
                   shape: const StarBorder(),
                 ),
               ),
@@ -87,3 +101,7 @@ class UserReviewItemWidget extends StatelessWidget {
     );
   }
 }
+
+
+
+
