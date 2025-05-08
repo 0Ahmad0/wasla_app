@@ -98,19 +98,17 @@ class MyAddressItemWidget extends GetView<MyAddressController> {
                   ),
                 ),
                 8.h.height,
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      DateFormat.yMMMMEEEEd(Get.locale?.languageCode).format(
-                        DateTime.parse(
-                          address.dateSelected,
-                        ),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    DateFormat.yMMMMEEEEd(Get.locale?.languageCode).format(
+                      DateTime.parse(
+                        address.dateSelected,
                       ),
-                      style: getLightStyle(
-                          color: ColorManager.primaryColor, fontSize: 10),
                     ),
-                  ],
+                    style: getLightStyle(
+                        color: ColorManager.primaryColor, fontSize: 10),
+                  ),
                 )
               ],
             ),

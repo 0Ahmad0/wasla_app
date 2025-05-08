@@ -47,7 +47,7 @@ class MyAddressController extends GetxController{
     ),
   ].obs;
 
-  RxInt selectedIndex = (-1).obs;
+  RxInt selectedIndex = (0).obs;
 
   final  addNewLocationFormKey= GlobalKey<FormState>();
 

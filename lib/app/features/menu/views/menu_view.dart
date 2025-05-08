@@ -17,7 +17,7 @@ class MenuView extends GetView<MenuAppController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => MenuAppController());
     return Scaffold(
-      appBar: AppBarWidget(
+      appBar: const AppBarWidget(
         title: StringsManager.muneText,
       ),
       body: SingleChildScrollView(
@@ -69,6 +69,7 @@ class MenuView extends GetView<MenuAppController> {
                           title: e.title,
                           icon: e.icon,
                           route: e.route,
+                          onTap: e.onTap,
                         ),
                       )
                       .toList(),

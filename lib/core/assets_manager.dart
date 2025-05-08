@@ -12,6 +12,8 @@ class AssetsManager{
   static const String onBoarding3IMG = '$_imagePath/onboarding3.png';
   static const String couponBackgroundIMG = '$_imagePath/coupon_background.png';
   static const String vector404IMG = '$_imagePath/404_vector.svg';
+  static const String shapeDialogStarsIMG = '$_imagePath/shape_dialog_stars.svg';
+  static const String coverShapeIconIMG = '$_imagePath/cover_shape_icon.svg';
 
 
   static const String resetPasswordIcon = '$_iconPath/reset_password_icon.png';

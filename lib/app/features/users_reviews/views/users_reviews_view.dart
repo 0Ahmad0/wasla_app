@@ -37,7 +37,7 @@ class UsersReviewsView extends GetView<UsersReviewsController> {
       appBar: const AppBarWidget(
         title: StringsManager.usersReviewsText,
       ),
-      body: ListView.separated(
+      body: Obx(()=>ListView.separated(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 10.h),
         itemBuilder: (context, index) {
           final userReview = controller.userReviews[index];
@@ -45,7 +45,7 @@ class UsersReviewsView extends GetView<UsersReviewsController> {
         },
         separatorBuilder: (_, __) => 8.h.height,
         itemCount: controller.userReviews.length,
-      ),
+      )),
     );
   }
 }

@@ -66,6 +66,12 @@ class UsersReviewsController extends GetxController {
     print(getEmojiIcon());
   }
 
+  void addReview(UserReviewModel review) {
+    userReviews.add(review);
+    reteTextController.clear();
+
+  }
+
   @override
   void onClose() {
     reteTextController.dispose();

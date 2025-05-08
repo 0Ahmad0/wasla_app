@@ -10,6 +10,8 @@ import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/assets_manager.dart';
+import 'package:wasla_app/core/dialogs/app_dialog.dart';
+import 'package:wasla_app/core/dialogs/widgets/logout_dialog_widgets.dart';
 import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/strings_manager.dart';
@@ -77,6 +79,14 @@ class MenuAppController extends GetxController {
   ];
   final List<MenuItemModel> bloc4Items = [
     MenuItemModel(
-        title: StringsManager.logoutText, icon: AssetsManager.menuLogoutIcon),
+      title: StringsManager.logoutText,
+      icon: AssetsManager.menuLogoutIcon,
+      route: null,
+      onTap: (){
+        AppDialog(
+          widget: LogoutDialogWidget(),
+        ).showAppDialog(Get.context!);
+      }
+    ),
   ];
 }
