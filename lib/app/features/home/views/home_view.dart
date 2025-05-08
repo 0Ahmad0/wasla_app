@@ -5,7 +5,9 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/home/widgtes/carousel_home_item_widget.dart';
+import 'package:wasla_app/app/features/home/widgtes/category_item_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/custom_home_appbar.dart';
+import 'package:wasla_app/app/features/home/widgtes/product_item_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
@@ -107,6 +109,7 @@ class HomeView extends GetView<HomeController> {
                     enlargeStrategy: CenterPageEnlargeStrategy.scale,
                   ),
                 ),
+                4.h.height,
                 Obx(
                   () => AnimatedSmoothIndicator(
                     activeIndex: controller.activeIndex.value,
@@ -117,13 +120,58 @@ class HomeView extends GetView<HomeController> {
                       // type: WormType.thin,
                       activeDotColor: ColorManager.primaryColor,
                       dotColor: ColorManager.notificationDateTimeGrayColor,
-                      dotWidth: 12.sp,
-                      dotHeight: 12.sp,
+                      dotWidth: 10.sp,
+                      dotHeight: 10.sp,
                     ),
                   ),
-                )
+                ),
+                4.h.height,
               ],
             ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 54.h,
+              // color: ColorManager.errorColor,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  print(controller.categoriesList);
+                  final category = controller.categoriesList[index];
+                  return CategoryItemWidget(
+                    imageURL: category.imageUrl,
+                    name: category.name,
+                    index: index,
+                  );
+                },
+                separatorBuilder: (_, __) => 20.w.width,
+                itemCount: controller.categoriesList.length,
+              ),
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 24.w,
+            ),
+            sliver: Obx(()=>SliverGrid.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10.w,mainAxisSpacing: 8.h,
+                  childAspectRatio: .85
+              ),
+              itemBuilder: (context, index) {
+                final product = controller
+                    .categoriesList[controller.activeCategoryIndex.value]
+                    .products[index];
+                return ProductItemWidget(
+                  product: product,
+                );
+              },
+              itemCount: controller
+                  .categoriesList[controller.activeCategoryIndex.value]
+                  .products
+                  .length,
+            )),
           )
         ],
       ),

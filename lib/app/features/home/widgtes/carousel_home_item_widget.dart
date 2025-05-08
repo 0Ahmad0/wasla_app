@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wasla_app/app/features/home/controllers/home_controller.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
+import 'package:wasla_app/app/widgets/cached_network_image_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
@@ -24,13 +25,9 @@ class CarouselHomeItemWidget extends GetView<HomeController> {
       clipBehavior: Clip.antiAlias,
       child: Stack(
         children: [
-          Image.network(
-            width: double.maxFinite,
+          CachedImageWidget(
+            imageUrl: imageURL,
             height: 200.h,
-            imageURL,
-            fit: BoxFit.cover,
-            colorBlendMode: BlendMode.hardLight,
-            color: ColorManager.blackColor.withOpacity(.45),
           ),
           Container(
             width: double.maxFinite,
@@ -40,12 +37,9 @@ class CarouselHomeItemWidget extends GetView<HomeController> {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  ColorManager.blackColor.withOpacity(0.05),
-                  // الأعلى: شفاف تقريبًا
-                  ColorManager.blackColor.withOpacity(0.05),
-                  // الأسفل: شبه معتم
-                  ColorManager.blackColor.withOpacity(0.25),
-                  // الأسفل جدًا: معتم أكثر
+                  ColorManager.blackColor.withOpacity(0.0),
+                  ColorManager.blackColor.withOpacity(0.4),
+                  ColorManager.blackColor,
                 ],
               ),
             ),

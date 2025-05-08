@@ -112,6 +112,7 @@ dependencies:
   #For Show Home Items In Carousel
   carousel_slider: ^5.0.0
   smooth_page_indicator: ^1.2.1
+  cached_network_image: ^3.4.1
 
 
 
