@@ -74,6 +74,10 @@ class StringsManager {
   static const String profileText = "الملف الشخصي";
   static const String saveChangesText = "احفظ التعديلات";
   static const String deleteAccountText = "حذف الحساب";
+  static const String profilePhotoText = "صورة الحساب";
+  static const String cameraText = "الكاميرا";
+  static const String galleryText = "المعرض";
+  static const String deleteText = "حذف";
 
   //Mune Screen
   static const String muneText = "القائمة";

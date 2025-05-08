@@ -23,10 +23,12 @@ class GeneralAppDialog extends StatelessWidget {
     this.cancelColor = ColorManager.textSecondaryColor,
     this.okColor = ColorManager.primaryColor,
     this.iconColor = ColorManager.whiteColor,
+    this.icon = AssetsManager.menuLogoutIcon,
   });
 
   final String title;
   final String? okText;
+  final String? icon;
   final String? cancelText;
   final VoidCallback? cancelOnTap;
   final VoidCallback? okOnTap;
@@ -80,7 +82,7 @@ class GeneralAppDialog extends StatelessWidget {
                         ),
                       ),
                       SvgPicture.asset(
-                        AssetsManager.menuLogoutIcon,
+                        icon!,
                         fit: BoxFit.cover,
                         width: 30.sp,
                         height: 30.sp,
