@@ -1,8 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
-import 'package:wasla_app/app/features/home/widgte/custom_home_appbar.dart';
+import 'package:wasla_app/app/features/home/widgtes/carousel_home_item_widget.dart';
+import 'package:wasla_app/app/features/home/widgtes/custom_home_appbar.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
@@ -17,10 +20,12 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => HomeController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add_shopping_cart, color: ColorManager.whiteColor),
+        child:
+            const Icon(Icons.add_shopping_cart, color: ColorManager.whiteColor),
       ),
       appBar: CustomHomeAppbar(
         height: 150,
@@ -74,6 +79,53 @@ class HomeView extends GetView<HomeController> {
             ],
           ),
         ),
+      ),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                8.h.height,
+                CarouselSlider.builder(
+                  itemCount: controller.carouselHomeItems.length,
+                  itemBuilder: (context, index, _) {
+                    final item = controller.carouselHomeItems[index];
+                    return CarouselHomeItemWidget(
+                      imageURL: item.image,
+                      text: item.text,
+                    );
+                  },
+                  options: CarouselOptions(
+                    onPageChanged: (index, reason) {
+                      controller.onPageChanged(index);
+                    },
+                    aspectRatio: 2.4,
+                    autoPlay: true,
+                    viewportFraction: 0.75,
+                    enlargeCenterPage: true,
+                    enlargeFactor: .225,
+                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                  ),
+                ),
+                Obx(
+                  () => AnimatedSmoothIndicator(
+                    activeIndex: controller.activeIndex.value,
+                    count: controller.carouselHomeItems.length,
+                    effect: SwapEffect(
+                      paintStyle: PaintingStyle.fill,
+                      type: SwapType.yRotation,
+                      // type: WormType.thin,
+                      activeDotColor: ColorManager.primaryColor,
+                      dotColor: ColorManager.notificationDateTimeGrayColor,
+                      dotWidth: 12.sp,
+                      dotHeight: 12.sp,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

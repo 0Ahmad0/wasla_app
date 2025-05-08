@@ -102,8 +102,17 @@ dependencies:
   #For Get Current User Location
   geolocator: 13.0.4
   geolocator_android: 4.6.1
+
+  #For Share App On Media
   share_plus: ^11.0.0
+
+  #For Rating App
   flutter_rating_bar: ^4.0.1
+
+  #For Show Home Items In Carousel
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.1
+
 
 
 
