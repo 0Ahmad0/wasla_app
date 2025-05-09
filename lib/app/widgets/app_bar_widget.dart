@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:wasla_app/app/features/auth/views/login_view.dart';
+import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/app/widgets/backbutton_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
@@ -26,7 +27,6 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder<double>(
-
       duration: const Duration(milliseconds: 800),
       tween: Tween(begin: 0, end: 34),
       curve: Curves.easeIn,
@@ -38,7 +38,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               clipper: CurvedAppBarClipper(curveHeight: value),
               child: Container(
                 height: height,
-                color:  ColorManager.primaryColor,
+                decoration: BoxDecoration(
+                  color:  ColorManager.primaryColor,
+                ),
               ),
             ),
             SizedBox(
@@ -48,12 +50,19 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                 alignment: Alignment.center,
                 children: [
                   // Title
-                  Text(
-                    title,
-                    textAlign: TextAlign.center,
-                    style: getBoldStyle(
-                      color: ColorManager.whiteColor,
-                      fontSize: 22
+                  //ToDO: Fix Title
+                  AppPadding(
+                    vPadding: 0,
+                    hPadding: 60,
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      style: getBoldStyle(
+                        color: ColorManager.whiteColor,
+                        fontSize: 22
+                      ),
                     ),
                   ),
                   // Leading

@@ -572,14 +572,15 @@ class HomeController extends GetxController {
   ].obs;
 
   RxInt activeIndex = 0.obs;
-  RxInt activeCategoryIndex = 0.obs;
+  int activeCategoryIndex = 0;
 
   void onPageChanged(int index) {
     activeIndex.value = index;
   }
 
   void changeCategoryIndex(int index) {
-    activeCategoryIndex.value = index;
+    activeCategoryIndex = index;
+    update();
   }
 
   List<String> getCustomPrice(double price) {
@@ -587,7 +588,7 @@ class HomeController extends GetxController {
     return priceStr.split('.');
   }
 
-  bool isCurrentCategoryIndex(index) => activeCategoryIndex.value == index;
+  bool isCurrentCategoryIndex(index) => activeCategoryIndex == index;
 
   bool isFavorite(isFav)=> isFav = !isFav;
 

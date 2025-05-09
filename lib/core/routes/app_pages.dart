@@ -23,6 +23,8 @@ import 'package:wasla_app/app/features/navbar/bindings/navbar_binding.dart';
 import 'package:wasla_app/app/features/navbar/views/navbar_view.dart';
 import 'package:wasla_app/app/features/notifications/bindings/notification_binding.dart';
 import 'package:wasla_app/app/features/notifications/views/notification_view.dart';
+import 'package:wasla_app/app/features/product_details/bindings/product_details_binding.dart';
+import 'package:wasla_app/app/features/product_details/views/product_details_view.dart';
 import 'package:wasla_app/app/features/profile/bindings/profile_binding.dart';
 import 'package:wasla_app/app/features/profile/views/profile_view.dart';
 import 'package:wasla_app/app/features/search/bindings/search_binding.dart';
@@ -77,7 +79,14 @@ class AppPages {
     GetPage(
       name: AppRoutes.navbar,
       page: () => NavbarView(),
-      binding: NavbarBinding(),
+      binding: BindingsBuilder((){
+        NavbarBinding().dependencies();
+        HomeBinding().dependencies();
+        MenuBinding().dependencies();
+        SearchBinding().dependencies();
+        NotificationBinding().dependencies();
+        ProfileBinding().dependencies();
+      }),
     ),
     GetPage(
       name: AppRoutes.home,
@@ -143,6 +152,11 @@ class AppPages {
       name: AppRoutes.usersReviews,
       page: () => UsersReviewsView(),
       binding: UsersReviewsBinding()
+    ),
+    GetPage(
+      name: AppRoutes.productDetails,
+      page: () => ProductDetailsView(),
+      binding: ProductDetailsBinding()
     ),
 
 

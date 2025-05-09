@@ -22,41 +22,43 @@ class CategoryItemWidget extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => Column(
-          children: [
-            InkWell(
+    return GetBuilder<HomeController>(
+        init: HomeController(),
+        builder: (context)=>Column(
+      children: [
+        InkWell(
+          borderRadius: BorderRadius.circular(
+            controller.isCurrentCategoryIndex(index) ? 12.r : 100.r,
+          ),
+          onTap: () => controller.changeCategoryIndex(index),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              color: ColorManager.secondaryColor.withOpacity(.25),
               borderRadius: BorderRadius.circular(
-                controller.isCurrentCategoryIndex(index) ? 12.r : 100.r,
-              ),
-              onTap: () => controller.changeCategoryIndex(index),
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 200),
-                clipBehavior: Clip.hardEdge,
-                decoration: BoxDecoration(
-                  color: ColorManager.secondaryColor.withOpacity(.25),
-                  borderRadius: BorderRadius.circular(
-                      controller.isCurrentCategoryIndex(index) ? 100.r : 8.r),
-                ),
-                child: CachedImageWidget(
-                  imageUrl: imageURL,
-                  width: 70.sp,
-                  height: 70.sp,
-                ),
-              ),
+                  controller.isCurrentCategoryIndex(index) ? 100.r : 8.r),
             ),
-            4.h.height,
-            FittedBox(
-              child: Text(
-                name,
-                textAlign: TextAlign.center,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: getLightStyle(
-                  color: ColorManager.textPrimaryColor,
-                ),
-              ),
-            )
-          ],
-        ));
+            child: CachedImageWidget(
+              imageUrl: imageURL,
+              width: 70.sp,
+              height: 70.sp,
+            ),
+          ),
+        ),
+        4.h.height,
+        FittedBox(
+          child: Text(
+            name,
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: getLightStyle(
+              color: ColorManager.textPrimaryColor,
+            ),
+          ),
+        )
+      ],
+    ));
   }
 }

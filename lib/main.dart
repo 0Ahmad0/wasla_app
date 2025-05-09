@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
                 initialRoute: AppRoutes.splash,
                 getPages: AppPages.pages,
                 // unknownRoute: AppPages.pages.last,
-                defaultTransition: Transition.downToUp,
+                defaultTransition: Transition.rightToLeftWithFade,
                 theme: ThemeManager.myTheme,
                 darkTheme: ThemeManager.myTheme.copyWith(
                   brightness: Brightness.dark,

@@ -22,7 +22,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(()=>HomeController());
+    // Get.lazyPut(() => HomeController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -38,6 +38,7 @@ class HomeView extends GetView<HomeController> {
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +61,6 @@ class HomeView extends GetView<HomeController> {
                       ),
                     ],
                   ),
-                  Spacer(),
                   Row(
                     children: [
                       CircleAvatar(
@@ -83,6 +83,7 @@ class HomeView extends GetView<HomeController> {
         ),
       ),
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
             child: Column(
@@ -134,6 +135,10 @@ class HomeView extends GetView<HomeController> {
               height: 54.h,
               // color: ColorManager.errorColor,
               child: ListView.separated(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 10.w,
+                ),
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   final category = controller.categoriesList[index];
@@ -149,28 +154,31 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
           SliverPadding(
+
             padding: EdgeInsets.symmetric(
               horizontal: 10.w,
             ),
-            sliver: Obx(() => SliverGrid.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10.w,
-                      mainAxisSpacing: 16.h,
-                      childAspectRatio: .85),
-                  itemBuilder: (context, index) {
-                    final product = controller
-                        .categoriesList[controller.activeCategoryIndex.value]
-                        .products[index];
-                    return ProductItemWidget(
-                      product: product,
-                    );
-                  },
-                  itemCount: controller
-                      .categoriesList[controller.activeCategoryIndex.value]
-                      .products
-                      .length,
-                ),
+            sliver: GetBuilder<HomeController>(
+              init: HomeController(),
+              builder: (context) => SliverGrid.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.w,
+                    mainAxisSpacing: 16.h,
+                    childAspectRatio: .85),
+                itemBuilder: (context, index) {
+                  final product = controller
+                      .categoriesList[controller.activeCategoryIndex]
+                      .products[index];
+                  return ProductItemWidget(
+                    product: product,
+                  );
+                },
+                itemCount: controller
+                    .categoriesList[controller.activeCategoryIndex]
+                    .products
+                    .length,
+              ),
             ),
           )
         ],

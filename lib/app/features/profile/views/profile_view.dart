@@ -25,7 +25,7 @@ class ProfileView extends GetView<ProfileController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => ProfileController());
+    // Get.lazyPut(() => ProfileController());
     return Scaffold(
       appBar: const AppBarWidget(
         title: StringsManager.profileText,

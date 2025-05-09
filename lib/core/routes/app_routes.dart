@@ -20,6 +20,7 @@ abstract class AppRoutes {
   static const settings = '/settings';
   static const usersReviews = '/usersReviews';
   static const menu = '/menu';
+  static const productDetails = '/productDetails';
 
 
 

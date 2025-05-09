@@ -18,7 +18,7 @@ class NotificationView extends GetView<NotificationController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => NotificationController());
+    // Get.lazyPut(() => NotificationController());
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.notificationText,
