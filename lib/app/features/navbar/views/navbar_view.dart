@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:wasla_app/app/features/home/views/home_view.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
+import '../../home/controllers/home_controller.dart';
 import '../controllers/navbar_controller.dart';
 
 class NavbarView extends GetView<NavbarController> {

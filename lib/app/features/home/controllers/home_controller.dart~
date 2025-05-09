@@ -589,6 +589,6 @@ class HomeController extends GetxController {
 
   bool isCurrentCategoryIndex(index) => activeCategoryIndex.value == index;
 
-  bool isFavorite(isFav)=> isFav = !isFav;
+
 
 }

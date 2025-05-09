@@ -22,7 +22,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(()=>HomeController());
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -136,7 +136,6 @@ class HomeView extends GetView<HomeController> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
-                  print(controller.categoriesList);
                   final category = controller.categoriesList[index];
                   return CategoryItemWidget(
                     imageURL: category.imageUrl,
@@ -151,27 +150,28 @@ class HomeView extends GetView<HomeController> {
           ),
           SliverPadding(
             padding: EdgeInsets.symmetric(
-              horizontal: 24.w,
+              horizontal: 10.w,
             ),
-            sliver: Obx(()=>SliverGrid.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10.w,mainAxisSpacing: 8.h,
-                  childAspectRatio: .85
-              ),
-              itemBuilder: (context, index) {
-                final product = controller
-                    .categoriesList[controller.activeCategoryIndex.value]
-                    .products[index];
-                return ProductItemWidget(
-                  product: product,
-                );
-              },
-              itemCount: controller
-                  .categoriesList[controller.activeCategoryIndex.value]
-                  .products
-                  .length,
-            )),
+            sliver: Obx(() => SliverGrid.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.w,
+                      mainAxisSpacing: 16.h,
+                      childAspectRatio: .85),
+                  itemBuilder: (context, index) {
+                    final product = controller
+                        .categoriesList[controller.activeCategoryIndex.value]
+                        .products[index];
+                    return ProductItemWidget(
+                      product: product,
+                    );
+                  },
+                  itemCount: controller
+                      .categoriesList[controller.activeCategoryIndex.value]
+                      .products
+                      .length,
+                ),
+            ),
           )
         ],
       ),
