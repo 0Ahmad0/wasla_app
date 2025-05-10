@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../core/color_manager.dart';
+
 class CachedImageWidget extends StatelessWidget {
   final String imageUrl;
   final double width;
@@ -15,7 +16,7 @@ class CachedImageWidget extends StatelessWidget {
     this.width = double.infinity,
     this.height = 200,
     this.fit = BoxFit.cover,
-     this.clipRadius = 0.0,
+    this.clipRadius = 0.0,
   });
 
   @override
@@ -27,7 +28,6 @@ class CachedImageWidget extends StatelessWidget {
         width: width,
         height: height,
         fit: fit,
-
         placeholder: (context, url) => Container(
           width: width,
           height: height,

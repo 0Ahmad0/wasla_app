@@ -70,6 +70,5 @@ class ThemeManager {
       }),
     ),
     scaffoldBackgroundColor: ColorManager.whiteColor,
-
   );
 }

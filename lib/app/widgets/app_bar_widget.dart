@@ -93,6 +93,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
 
 //********************
 class CurvedAppBarClipper extends CustomClipper<Path> {
+
   final double curveHeight;
 
   CurvedAppBarClipper({required this.curveHeight});

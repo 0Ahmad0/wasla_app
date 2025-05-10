@@ -115,6 +115,7 @@ dependencies:
 
   #For Cached Network Image  
   cached_network_image: ^3.4.1
+  vibration: ^3.1.3
 
 
 

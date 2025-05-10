@@ -6,9 +6,10 @@ import 'package:share_plus/share_plus.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 
 class ShareHelper {
-  static Future<void> shareAppWithImage() async {
+  static Future<void> shareAppWithImage(
+      {String url = AssetsManager.appIcon}) async {
     const appLink = "https://wasla_app.com";
-    const String appImage = AssetsManager.appIcon;
+    String appImage = url;
     const shareText = "حمّل تطبيق وصلة الآن للتسوق من شي إن 🛍️\n$appLink";
 
     try {
