@@ -10,9 +10,10 @@ class AppBottomSheet {
     this.widget,
   });
 
-  void showAppBottomSheet(BuildContext context) {
+  void showAppBottomSheet(BuildContext context,{bool isScrollControlled = false}) {
     showModalBottomSheet(
       context: context,
+      isScrollControlled: isScrollControlled,
       builder: (context) => widget ?? const SizedBox.shrink(),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
