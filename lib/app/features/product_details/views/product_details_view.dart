@@ -61,16 +61,22 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                               style: getRegularStyle(
                                   color: ColorManager.textSecondaryColor),
                             ),
-                            const Divider(
-                              thickness: .25,
+                            const FractionallySizedBox(
+                              widthFactor: 1.5,
+                              child: Divider(
+                                thickness: .5,
+                              ),
                             ),
-                            4.h.height,
+                            2.h.height,
                             QuantityAndTotalPriceWidget(
                               product: product,
                             ),
-                            4.h.height,
-                            const Divider(
-                              thickness: .25,
+                            2.h.height,
+                            const FractionallySizedBox(
+                              widthFactor: 1.5,
+                              child: Divider(
+                                thickness: .5,
+                              ),
                             ),
                             Text(
                               "التقييمات والآراء",
@@ -110,7 +116,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               icon: Icons.ios_share,
               onTap: () {
                 ShareHelper.shareImageFromUrl(
-                  url: product.imageUrl,
+                  imageUrl: product.imageUrl,
                   shareText: product.name
                 );
               },

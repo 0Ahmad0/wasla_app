@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:wasla_app/app/features/home/model/category_model.dart';
 import 'package:wasla_app/app/features/home/widgtes/product_item_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
 import '../../../../core/strings_manager.dart';
+import '../../../../core/style_manager.dart';
 import '../../../widgets/app_bar_widget.dart';
 import '../../home/model/product_model.dart';
 
@@ -35,6 +38,18 @@ class _SearchViewState extends State<SearchView> {
       name: 'ملابس رجالية',
       imageUrl: 'https://picsum.photos/id/1011/400/200',
       products: [
+        ProductModel(
+          id: 'p3',
+          name: 'فستان سهرة',
+          imageUrl: 'https://picsum.photos/id/1018/200/200',
+          price: 249.99,
+        ),
+        ProductModel(
+          id: 'p3',
+          name: 'فستان سهرة',
+          imageUrl: 'https://picsum.photos/id/1018/200/200',
+          price: 249.99,
+        ),
         ProductModel(
           id: 'p1',
           name: 'تيشيرت رجالي',
@@ -568,7 +583,6 @@ class _SearchViewState extends State<SearchView> {
         ),
       ],
     ),
-
   ];
 
   @override
@@ -578,7 +592,8 @@ class _SearchViewState extends State<SearchView> {
         title: StringsManager.searchText,
         actions: [
           IconButton(
-            icon: const Icon(Icons.search,
+            icon: const Icon(
+              Icons.search,
               color: ColorManager.whiteColor,
             ),
             onPressed: () {
@@ -623,14 +638,27 @@ class ProductSearchDelegate extends SearchDelegate {
   String get searchFieldLabel => 'ابحث عن منتج';
 
   @override
+  ThemeData appBarTheme(BuildContext context) {
+    final baseTheme = Theme.of(context);
+    return baseTheme.copyWith(
+      inputDecorationTheme: InputDecorationTheme(
+        contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 14.w),
+        hintStyle:
+            getRegularStyle(color: ColorManager.hintTextColor, fontSize: 18),
+      ),
+    );
+  }
+
+  @override
   List<Widget> buildActions(BuildContext context) {
     return [
       if (query.isNotEmpty)
         IconButton(
-            icon: const Icon(
-              Icons.clear,
-            ),
-            onPressed: () => query = '')
+          icon: const Icon(
+            Icons.clear,
+          ),
+          onPressed: () => query = '',
+        )
     ];
   }
 
@@ -657,20 +685,22 @@ class ProductSearchDelegate extends SearchDelegate {
             child: Text('عمليات البحث الأخيرة',
                 style: TextStyle(fontWeight: FontWeight.bold)),
           ),
-        ...suggestions.map((item) => ListTile(
-              title: Text(item),
-              leading: const Icon(Icons.history),
-              onTap: () {
-                query = item;
-                showResults(context);
-              },
-            )),
+        ...suggestions.map(
+          (item) => ListTile(
+            title: Text(item),
+            leading: const Icon(Icons.history),
+            onTap: () {
+              query = item;
+              showResults(context);
+            },
+          ),
+        ),
       ],
     );
   }
+
   @override
   Widget buildResults(BuildContext context) {
-    // تأجيل استدعاء onSearch لتجنب الخطأ
     Future.microtask(() => onSearch(query));
 
     final filteredProducts = allProducts.where((product) {
@@ -680,14 +710,21 @@ class ProductSearchDelegate extends SearchDelegate {
     }).toList();
 
     if (filteredProducts.isEmpty) {
-      return const Center(child: Text('لا توجد نتائج'));
+      return const Center(
+        child: Text(
+          'لا توجد نتائج',
+        ),
+      );
     }
 
     return GridView.builder(
       padding: const EdgeInsets.all(12),
       itemCount: filteredProducts.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10, childAspectRatio: 0.7,
+        crossAxisCount: 2,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 0.7,
       ),
       itemBuilder: (context, index) {
         final product = filteredProducts[index];
@@ -695,45 +732,4 @@ class ProductSearchDelegate extends SearchDelegate {
       },
     );
   }
-  //
-  // @override
-  // Widget buildResults(BuildContext context) {
-  //   onSearch(query);
-  //
-  //   final filteredProducts = allProducts.where((product) {
-  //     final name = product.name.toLowerCase();
-  //     final q = query.toLowerCase();
-  //     return name.contains(q);
-  //   }).toList();
-  //
-  //   if (filteredProducts.isEmpty) {
-  //     return const Center(child: Text('لا توجد نتائج'));
-  //   }
-  //
-  //   return GridView.builder(
-  //     padding: const EdgeInsets.all(12),
-  //     itemCount: filteredProducts.length,
-  //     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-  //       crossAxisCount: 2,
-  //       mainAxisSpacing: 10,
-  //       crossAxisSpacing: 10,
-  //       childAspectRatio: 0.7,
-  //     ),
-  //     itemBuilder: (context, index) {
-  //       final product = filteredProducts[index];
-  //       return Card(
-  //         child: Column(
-  //           children: [
-  //             Image.network(product.imageUrl, height: 100, fit: BoxFit.cover),
-  //             const SizedBox(height: 8),
-  //             Text(product.name,
-  //                 style: const TextStyle(fontWeight: FontWeight.bold)),
-  //             const SizedBox(height: 4),
-  //             Text('${product.price.toStringAsFixed(2)} ل.س'),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-  // }
 }

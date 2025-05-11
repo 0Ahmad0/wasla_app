@@ -1,10 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:http/http.dart' as http;
+
+import '../color_manager.dart';
 
 class ShareHelper {
   static Future<void> shareAppWithImage(
@@ -14,10 +18,8 @@ class ShareHelper {
     const shareText = "حمّل تطبيق وصلة الآن للتسوق من شي إن 🛍️\n$appLink";
 
     try {
-      // تحميل الصورة من الأصول
       final byteData = await rootBundle.load(appImage);
 
-      // حفظها مؤقتًا في ملف
       final tempDir = await getTemporaryDirectory();
       final file = File('${tempDir.path}/share_image.png');
       await file.writeAsBytes(byteData.buffer.asUint8List());
@@ -28,29 +30,33 @@ class ShareHelper {
         fileNameOverrides: ['share.png'],
         text: shareText,
       );
-      // مشاركة الصورة والنص
       await SharePlus.instance.share(params);
     } catch (e) {
       print("خطأ أثناء المشاركة: $e");
     }
   }
 
+
+
   static Future<void> shareImageFromUrl({
     String? imageUrl,
-    url = 'https://wasla_app.com',
+    String url = 'https://wasla_app.com',
     String? shareText,
   }) async {
-    var appLink = url;
-    shareText = shareText;
+    final appLink = url;
+    shareText = (shareText ?? '') + "\n$appLink";
 
     try {
+      Get.dialog(
+        const Center(child: CircularProgressIndicator(
+          color: ColorManager.primaryColor,
+        ),),
+        barrierDismissible: false,
+      );
+
       Uint8List imageBytes;
 
-      if (imageUrl != null &&
-          imageUrl.startsWith(
-            'http',
-          )) {
-// تحميل الصورة من الإنترنت
+      if (imageUrl != null && imageUrl.startsWith('http')) {
         final response = await http.get(Uri.parse(imageUrl));
         if (response.statusCode == 200) {
           imageBytes = response.bodyBytes;
@@ -59,7 +65,7 @@ class ShareHelper {
         }
       } else {
         final byteData =
-            await rootBundle.load(imageUrl ?? AssetsManager.appIcon);
+        await rootBundle.load(imageUrl ?? AssetsManager.appIcon);
         imageBytes = byteData.buffer.asUint8List();
       }
 
@@ -73,9 +79,15 @@ class ShareHelper {
         text: shareText,
       );
 
+      // إغلاق التحميل قبل المشاركة
+      Get.back();
+
       await SharePlus.instance.share(params);
     } catch (e) {
+      Get.back(); // إغلاق التحميل حتى لو حصل خطأ
       print("خطأ أثناء المشاركة: $e");
+      Get.snackbar("خطأ", "حدث خطأ أثناء المشاركة");
     }
   }
+
 }
