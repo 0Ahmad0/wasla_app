@@ -6,6 +6,7 @@ class ProductDetailsController extends GetxController {
   RxInt productQuantity = 1.obs;
   final int maxQuantity = 20;
   Timer? _timer;
+  RxInt activeSubImageProductIndex = (-1).obs;
 
   void vibrateDevice() async {
     if (await Vibration.hasVibrator() ?? false) {
@@ -58,5 +59,9 @@ class ProductDetailsController extends GetxController {
 
   void stopCounter() {
     _timer?.cancel();
+  }
+
+  void changeActiveSubImageProductIndex(int index) {
+    activeSubImageProductIndex.value = index;
   }
 }

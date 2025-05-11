@@ -111,7 +111,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               onTap: () {
                 ShareHelper.shareImageFromUrl(
                   url: product.imageUrl,
-                  shareText: product.name
+                  shareText: product.name 
                 );
               },
             ),

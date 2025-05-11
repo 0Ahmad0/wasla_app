@@ -569,7 +569,6 @@ class _SearchViewState extends State<SearchView> {
       ],
     ),
 
-    // ⚠️ أكمل الفئات من 11 إلى 20 بنفس الطريقة حسب حاجتك
   ];
 
   @override
