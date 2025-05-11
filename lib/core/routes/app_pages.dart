@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:wasla_app/app/features/about/views/about_view.dart';
 import 'package:wasla_app/app/features/auth/bindings/auth_binding.dart';
 import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/auth/views/login_view.dart';
@@ -32,6 +33,7 @@ import 'package:wasla_app/app/features/search/views/search_view.dart';
 import 'package:wasla_app/app/features/unknow/views/unknow_view.dart';
 import 'package:wasla_app/app/features/users_reviews/bindings/users_reviews_binding.dart';
 import 'package:wasla_app/app/features/users_reviews/views/users_reviews_view.dart';
+import '../../app/features/about/bindings/about_binding.dart';
 import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
 import '../../app/features/onboarding/views/onboarding_view.dart';
@@ -157,6 +159,12 @@ class AppPages {
       name: AppRoutes.productDetails,
       page: () => ProductDetailsView(),
       binding: ProductDetailsBinding()
+    ),
+
+    GetPage(
+      name: AppRoutes.about,
+      page: () => AboutView(),
+      binding: AboutBinding()
     ),
 
 

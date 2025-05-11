@@ -115,7 +115,18 @@ dependencies:
 
   #For Cached Network Image  
   cached_network_image: ^3.4.1
+
+  #For Vibrate Device On Happen Something
   vibration: ^3.1.3
+
+  #For Management Big Text In App (Show Less) (Show More)
+  readmore: ^3.0.0
+
+  #For Show Html Content As Text In App
+  flutter_html: ^3.0.0-beta.2
+
+  #For Launch Url, email, phone, whatsapp, ...etc From Link
+  url_launcher: ^6.3.1
 
 
 

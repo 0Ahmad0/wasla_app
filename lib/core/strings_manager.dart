@@ -90,6 +90,7 @@ class StringsManager {
   static const String paymentMethodsText = "طرق الدفع";
   static const String customerSupportText = "التواصل مع الدعم";
   static const String faqText = "FAQs";
+  static const String aboutAppText = "حول التطبيق";
   static const String userReviewsText = "آراء المستخدمين";
   static const String settingsText = "الإعدادات";
   static const String logoutText = "تسجيل الخروج";
@@ -164,15 +165,14 @@ class StringsManager {
 
   //Add New Address Screen
 
-
-
   //Setting Screen
   static const String settingText = "الاعدادات";
   static const String languageAppText = "لغة التطبيق";
   static const String arLanguageText = "العربية";
   static const String enLanguageText = "الانجليزية";
   static const String notificationAppText = "الإشعارات";
-  static const String notificationAppSubtitleText = "الرسائل, الطلبات, الخصومات...";
+  static const String notificationAppSubtitleText =
+      "الرسائل, الطلبات, الخصومات...";
   static const String messagesNotificationText = "إشعارات الرسائل";
   static const String ordersNotificationText = "إشعارات الطلبات";
   static const String offersNotificationText = "إشعارات الخصومات";
@@ -186,6 +186,74 @@ class StringsManager {
   static const String usersReviewsText = "آراء مستخدمينا";
   static const String addNewReviewText = "أضف رايك عن التطبيق";
 
+  //About Us Screen
+  static const String aboutUsText = """
+  <h2>عن وصلة</h2>
 
+<p>
+<strong>وصلة</strong> هو تطبيق مبتكر للتسوق صُمم لتسهيل عملية الطلب من موقع <strong>شي إن</strong>، ويوفر تجربة سلسة وآمنة للمستخدمين في سوريا من خلال واجهة استخدام بسيطة وعملية.
+</p>
 
+<p>
+باستخدام وصلة، يمكنك إضافة روابط المنتجات مباشرة من شي إن إلى سلة الشراء داخل التطبيق، ثم تحديد المقاس واللون والكميات المطلوبة، وإرفاق ملاحظات خاصة إن وجدت. بعد ذلك يمكنك إتمام الطلب بكل سهولة من خلال خيارات دفع إلكترونية مرنة وآمنة.
+</p>
+
+<p>
+نحن نهتم بتجربتك في التسوق، ولذلك نقدم خدمات التوصيل السريع إلى باب المنزل، مع إمكانية تتبع حالة الطلب خطوة بخطوة داخل التطبيق. كل ذلك يهدف إلى توفير تجربة تسوق موثوقة ومريحة دون الحاجة للتعامل مع المواقع الأجنبية بشكل مباشر.
+</p>
+
+<p>
+يتميز التطبيق بالبساطة والوضوح، مع دعم فني متوفر دائمًا لمساعدتك في أي مشكلة أو استفسار. نؤمن بأن التسوق يجب أن يكون ممتعًا وخاليًا من التعقيد، وهذا ما نسعى لتحقيقه في وصلة.
+</p>
+
+<p>
+إذا كان لديك أي استفسار أو تحتاج إلى مساعدة، لا تتردد في التواصل معنا عبر البريد الإلكتروني:
+<br>
+<a href="mailto:hello@waslaapp.com" style="color: #1e88e5; font-weight: bold;">hello@waslaapp.com</a>
+</p>
+  """;
+
+  static const String contactUsText = "التواصل من أجل";
+  static const String inquirySubject = "استفسار عن طلبي";
+  static const String inquiryBody = '''
+مرحبًا فريق وصلة،
+
+قمت بإجراء طلب من خلال تطبيقكم وأرغب في الاستفسار عن حالة طلبي. هذه هي تفاصيل الطلب:
+
+- رقم الطلب: #12345
+- تاريخ الطلب: 10 مايو 2025
+
+أرجو منكم تزويدي بتحديث حول حالة الشحن أو موعد التوصيل المتوقع.
+
+مع الشكر الجزيل،
+[اسمك]
+''';
+
+  static const String complaintSubject = "مشكلة في الطلب";
+  static const String complaintBody = '''
+مرحبًا فريق وصلة،
+
+واجهت مشكلة مع طلبي الأخير، حيث أن المنتج لم يكن كما هو موضح في التطبيق. تفاصيل الطلب كالتالي:
+
+- رقم الطلب: #12345
+- نوع المشكلة: (مثلاً: المقاس غير صحيح / منتج تالف / منتج ناقص)
+
+أرجو منكم مساعدتي في حل المشكلة بأسرع وقت ممكن.
+
+شكرًا لتعاونكم،
+[اسمك]
+''';
+
+  static const String suggestionSubject = "اقتراح لتحسين التطبيق";
+  static const String suggestionBody = '''
+السلام عليكم فريق وصلة،
+
+أحببت أن أشارككم اقتراحًا قد يساهم في تحسين تجربة المستخدم داخل التطبيق:  
+(اكتب اقتراحك هنا)
+
+شكرًا لجهودكم في تقديم خدمة ممتازة، وأتمنى لكم المزيد من التوفيق.
+
+تحياتي،
+[اسمك]
+''';
 }

@@ -58,7 +58,7 @@ class GeneralAppDialog extends StatelessWidget {
             child: Column(
               children: [
                 10.h.height,
-                HeartBeat(
+                Tada(
                   delay: const Duration(milliseconds: 600),
                   child: Stack(
                     alignment: Alignment.center,

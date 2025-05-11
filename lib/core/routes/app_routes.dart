@@ -21,6 +21,7 @@ abstract class AppRoutes {
   static const usersReviews = '/usersReviews';
   static const menu = '/menu';
   static const productDetails = '/productDetails';
+  static const about = '/about';
 
 
 

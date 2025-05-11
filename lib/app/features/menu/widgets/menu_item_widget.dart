@@ -33,6 +33,8 @@ class MenuItemWidget extends StatelessWidget {
         backgroundColor: ColorManager.whiteColor,
         child: SvgPicture.asset(
           icon,
+          width: 18.sp,
+          height: 18.sp,
 
         ),
       ),
@@ -42,7 +44,7 @@ class MenuItemWidget extends StatelessWidget {
             getRegularStyle(fontSize: 18, color: ColorManager.textPrimaryColor),
       ),
       trailing: Icon(
-        Icons.keyboard_arrow_left,
+        Get.locale!.languageCode == 'ar'?Icons.keyboard_arrow_left:Icons.keyboard_arrow_right,
         color: ColorManager.menuArrowColor,
         size: 22.sp,
       ),

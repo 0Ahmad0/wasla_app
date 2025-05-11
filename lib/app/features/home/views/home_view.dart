@@ -14,7 +14,6 @@ import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -24,11 +23,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     // Get.lazyPut(() => HomeController());
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child:
-            const Icon(Icons.add_shopping_cart, color: ColorManager.whiteColor),
-      ),
       appBar: CustomHomeAppbar(
         height: 150,
         childW: AppPadding(
@@ -65,12 +59,12 @@ class HomeView extends GetView<HomeController> {
                     children: [
                       CircleAvatar(
                         radius: 26.sp,
-                        backgroundImage: AssetImage(
+                        backgroundImage: const AssetImage(
                           'assets/images/img.png',
                         ),
                       ),
                       10.w.width,
-                      Icon(
+                      const Icon(
                         Icons.notifications,
                         color: ColorManager.whiteColor,
                       )
@@ -82,107 +76,172 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
       ),
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                8.h.height,
-                CarouselSlider.builder(
-                  itemCount: controller.carouselHomeItems.length,
-                  itemBuilder: (context, index, _) {
-                    final item = controller.carouselHomeItems[index];
-                    return CarouselHomeItemWidget(
-                      imageURL: item.image,
-                      text: item.text,
-                    );
-                  },
-                  options: CarouselOptions(
-                    onPageChanged: (index, reason) {
-                      controller.onPageChanged(index);
-                    },
-                    aspectRatio: 2.4,
-                    autoPlay: true,
-                    viewportFraction: 0.75,
-                    enlargeCenterPage: true,
-                    enlargeFactor: .225,
-                    enlargeStrategy: CenterPageEnlargeStrategy.scale,
+      body: LayoutBuilder(builder: (context, constraints) {
+        if (controller.fabPosition.value == Offset.zero) {
+          controller.setInitialPosition(
+            Size(
+              constraints.maxWidth,
+              constraints.maxHeight,
+            ),
+          );
+        }
+
+        return Stack(
+          children: [
+            CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      8.h.height,
+                      CarouselSlider.builder(
+                        itemCount: controller.carouselHomeItems.length,
+                        itemBuilder: (context, index, _) {
+                          final item = controller.carouselHomeItems[index];
+                          return CarouselHomeItemWidget(
+                            imageURL: item.image,
+                            text: item.text,
+                          );
+                        },
+                        options: CarouselOptions(
+                          onPageChanged: (index, reason) {
+                            controller.onPageChanged(index);
+                          },
+                          aspectRatio: 2.4,
+                          autoPlay: true,
+                          viewportFraction: 0.75,
+                          enlargeCenterPage: true,
+                          enlargeFactor: .225,
+                          enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                        ),
+                      ),
+                      4.h.height,
+                      Obx(
+                        () => AnimatedSmoothIndicator(
+                          activeIndex: controller.activeIndex.value,
+                          count: controller.carouselHomeItems.length,
+                          effect: SwapEffect(
+                            paintStyle: PaintingStyle.fill,
+                            type: SwapType.yRotation,
+                            // type: WormType.thin,
+                            activeDotColor: ColorManager.primaryColor,
+                            dotColor:
+                                ColorManager.notificationDateTimeGrayColor,
+                            dotWidth: 10.sp,
+                            dotHeight: 10.sp,
+                          ),
+                        ),
+                      ),
+                      4.h.height,
+                    ],
                   ),
                 ),
-                4.h.height,
-                Obx(
-                  () => AnimatedSmoothIndicator(
-                    activeIndex: controller.activeIndex.value,
-                    count: controller.carouselHomeItems.length,
-                    effect: SwapEffect(
-                      paintStyle: PaintingStyle.fill,
-                      type: SwapType.yRotation,
-                      // type: WormType.thin,
-                      activeDotColor: ColorManager.primaryColor,
-                      dotColor: ColorManager.notificationDateTimeGrayColor,
-                      dotWidth: 10.sp,
-                      dotHeight: 10.sp,
+                SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 54.h,
+                    // color: ColorManager.errorColor,
+                    child: ListView.separated(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 10.w,
+                      ),
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        final category = controller.categoriesList[index];
+                        return CategoryItemWidget(
+                          imageURL: category.imageUrl,
+                          name: category.name,
+                          index: index,
+                        );
+                      },
+                      separatorBuilder: (_, __) => 20.w.width,
+                      itemCount: controller.categoriesList.length,
                     ),
                   ),
                 ),
-                4.h.height,
+                SliverPadding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.w,
+                  ),
+                  sliver: GetBuilder<HomeController>(
+                    init: HomeController(),
+                    builder: (context) => SliverGrid.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10.w,
+                          mainAxisSpacing: 16.h,
+                          childAspectRatio: .85),
+                      itemBuilder: (context, index) {
+                        final product = controller
+                            .categoriesList[controller.activeCategoryIndex]
+                            .products[index];
+                        return ProductItemWidget(
+                          product: product,
+                        );
+                      },
+                      itemCount: controller
+                          .categoriesList[controller.activeCategoryIndex]
+                          .products
+                          .length,
+                    ),
+                  ),
+                )
               ],
             ),
-          ),
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 54.h,
-              // color: ColorManager.errorColor,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10.w,
-                ),
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  final category = controller.categoriesList[index];
-                  return CategoryItemWidget(
-                    imageURL: category.imageUrl,
-                    name: category.name,
-                    index: index,
-                  );
-                },
-                separatorBuilder: (_, __) => 20.w.width,
-                itemCount: controller.categoriesList.length,
-              ),
-            ),
-          ),
-          SliverPadding(
+            Obx(() {
+              //TODO : Fix Problem with FAB
+              if (controller.itemCount.value == 0) {
+                return const SizedBox.shrink();
+              }
 
-            padding: EdgeInsets.symmetric(
-              horizontal: 10.w,
-            ),
-            sliver: GetBuilder<HomeController>(
-              init: HomeController(),
-              builder: (context) => SliverGrid.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10.w,
-                    mainAxisSpacing: 16.h,
-                    childAspectRatio: .85),
-                itemBuilder: (context, index) {
-                  final product = controller
-                      .categoriesList[controller.activeCategoryIndex]
-                      .products[index];
-                  return ProductItemWidget(
-                    product: product,
-                  );
-                },
-                itemCount: controller
-                    .categoriesList[controller.activeCategoryIndex]
-                    .products
-                    .length,
-              ),
-            ),
-          )
-        ],
-      ),
+              return AnimatedPositioned(
+                duration: const Duration(milliseconds: 150),
+                left: controller.fabPosition.value.dx,
+                top: controller.fabPosition.value.dy,
+                child: GestureDetector(
+                  onPanStart: (_) => controller.startDragging(),
+                  onPanUpdate: (details) => controller.updatePosition(details,
+                      Size(constraints.maxWidth, constraints.maxHeight)),
+                  onPanEnd: (_) => controller.stopDragging(),
+                  child: Obx(() => Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          if (controller.isDragging.value)
+                            Container(
+                              width: 56.w,
+                              height: 56.w,
+                              decoration: BoxDecoration(
+                                color: ColorManager
+                                    .notificationDateTimeGrayColor
+                                    .withOpacity(.75),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: const Icon(Icons.add_shopping_cart,
+                                  color: ColorManager.whiteColor),
+                            ),
+                          if (!controller.isDragging.value) _buildBadgeFAB(),
+                        ],
+                      )),
+                ),
+              );
+            }),
+          ],
+        );
+      }),
     );
+  }
+
+  Widget _buildBadgeFAB() {
+    return Obx(()=>Badge.count(
+      count: controller.itemCount.value,
+      child: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(
+          Icons.add_shopping_cart,
+          color: ColorManager.whiteColor,
+        ),
+      ),
+    ));
   }
 }

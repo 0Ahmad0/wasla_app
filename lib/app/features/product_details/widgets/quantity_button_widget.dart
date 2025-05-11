@@ -9,18 +9,15 @@ import '../../../../core/color_manager.dart';
 class QuantityButtonWidget extends GetView<ProductDetailsController> {
   const QuantityButtonWidget(
       {super.key,
-      required this.onTap,
       required this.onLongPress,
       required this.icon});
 
-  final VoidCallback onTap;
   final VoidCallback onLongPress;
   final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
       onTapDown: (details)=> onLongPress(),
       onTapCancel: ()=> controller.stopCounter(),
       onTapUp: (details)=> controller.stopCounter(),

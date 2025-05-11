@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/gestures.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/home/model/category_model.dart';
 import 'package:wasla_app/app/features/home/model/product_model.dart';
@@ -571,8 +574,41 @@ class HomeController extends GetxController {
     // ⚠️ أكمل الفئات من 11 إلى 20 بنفس الطريقة حسب حاجتك
   ].obs;
 
+  final Rx<Offset> fabPosition =  Offset.zero.obs;
+  RxInt itemCount = 0.obs;
   RxInt activeIndex = 0.obs;
   int activeCategoryIndex = 0;
+  final RxBool isDragging = false.obs;
+
+  void setInitialPosition(Size screenSize) {
+    fabPosition.value = Offset(screenSize.width - 72, screenSize.height - 72);
+  }
+
+  void updatePosition(DragUpdateDetails details, Size screenSize) {
+    double dx = fabPosition.value.dx + details.delta.dx;
+    double dy = fabPosition.value.dy + details.delta.dy;
+
+    dx = dx.clamp(0.0, screenSize.width - 56);
+    dy = dy.clamp(0.0, screenSize.height - 56);
+
+    fabPosition.value = Offset(dx, dy);
+  }
+
+  void startDragging() {
+    isDragging.value = true;
+  }
+
+  void stopDragging() {
+    isDragging.value = false;
+  }
+
+  void addItem() {
+    itemCount.value++;
+  }
+
+  void removeItem() {
+    if (itemCount.value > 0) itemCount.value--;
+  }
 
   void onPageChanged(int index) {
     activeIndex.value = index;
@@ -590,6 +626,14 @@ class HomeController extends GetxController {
 
   bool isCurrentCategoryIndex(index) => activeCategoryIndex == index;
 
-  bool isFavorite(isFav)=> isFav = !isFav;
+  bool isFavorite(isFav) {
 
+    return isFav = !isFav;
+  }
+
+  @override
+  void onInit() {
+    addItem();
+    super.onInit();
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/product_details/controllers/product_details_controller.dart';
 import 'package:wasla_app/app/features/product_details/widgets/floating_button_widget.dart';
@@ -25,7 +26,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-    final ProductModel product = Get.arguments as ProductModel;
+    final ProductModel product = controller.product!;
     return Scaffold(
       appBar: AppBarWidget(
         title: product.name,
@@ -56,10 +57,17 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
                                   color: ColorManager.textPrimaryColor),
                             ),
                             4.h.height,
-                            Text(
+                            ReadMoreText(
                               product.name * 30,
-                              style: getRegularStyle(
-                                  color: ColorManager.textSecondaryColor),
+                              trimMode: TrimMode.Line,
+                              trimLines: 4,
+                              style: getRegularStyle(color: ColorManager.textSecondaryColor),
+                              trimCollapsedText: 'عرض المزيد...',
+                              trimExpandedText: ' عرض أقل...',
+                              moreStyle: getBoldStyle(
+                                color: ColorManager.primaryColor
+                              ),
+                              lessStyle: getBoldStyle(),
                             ),
                             const FractionallySizedBox(
                               widthFactor: 1.5,
@@ -116,9 +124,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
               icon: Icons.ios_share,
               onTap: () {
                 ShareHelper.shareImageFromUrl(
-                  imageUrl: product.imageUrl,
-                  shareText: product.name
-                );
+                    imageUrl: product.imageUrl, shareText: product.name);
               },
             ),
           ),

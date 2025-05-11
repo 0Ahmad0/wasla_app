@@ -62,8 +62,6 @@ class UsersReviewsController extends GetxController {
 
   void onRatingUpdate(double rate) {
     rating.value = rate;
-    print(rating.value);
-    print(getEmojiIcon());
   }
 
   void addReview(UserReviewModel review) {

@@ -45,6 +45,7 @@ class AssetsManager{
   static const String chatArrowsSendIcon = '$_iconPath/chat_arrows_send_icon.svg';
   static const String chatLinkIcon = '$_iconPath/chat_link_icon.svg';
   static const String chatDocDownloadIcon = '$_iconPath/chat_doc_download_icon.svg';
+  static const String aboutAppIcon = '$_iconPath/menu_abot_icon.svg';
 
 
 

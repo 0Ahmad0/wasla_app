@@ -71,7 +71,6 @@ class QuantityAndTotalPriceWidget extends GetView<ProductDetailsController> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               QuantityButtonWidget(
-                onTap: controller.incrementProductQuantity,
                 onLongPress: controller.startIncrementing,
                 icon: Icons.add,
               ),
@@ -81,7 +80,6 @@ class QuantityAndTotalPriceWidget extends GetView<ProductDetailsController> {
                 ),
               ),
               QuantityButtonWidget(
-                onTap: controller.decrementProductQuantity,
                 onLongPress: controller.startDecrementing,
                 icon: Icons.remove,
               )
