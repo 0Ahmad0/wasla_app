@@ -8,6 +8,7 @@ workflows:
       - name: Install dependencies
         script: flutter pub get
 
+
       - name: Build APK (split-per-abi)
         script: flutter build apk --split-per-abi
 
