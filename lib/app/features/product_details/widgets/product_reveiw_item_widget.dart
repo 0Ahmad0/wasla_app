@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:wasla_app/app/features/product_details/model/product_review_model.dart';
 import 'package:wasla_app/app/features/users_reviews/model/user_review_model.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/style_manager.dart';
-class UserReviewItemWidget extends StatelessWidget {
-  const UserReviewItemWidget({super.key, required this.userReview});
 
-  final UserReviewModel userReview;
+class ProductReviewItemWidget extends StatelessWidget {
+  const ProductReviewItemWidget({super.key, required this.productReview});
+
+  final ProductReviewModel productReview;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class UserReviewItemWidget extends StatelessWidget {
                   color: ColorManager.secondaryColor.withOpacity(.25),
                   shape: BoxShape.circle,
                 ),
-                child: userReview.userImage == null
+                child: productReview.userImage == null
                     ? AppPadding(
                         hPadding: 6,
                         vPadding: 6,
@@ -45,7 +47,7 @@ class UserReviewItemWidget extends StatelessWidget {
                     : Image.asset(
                         width: 60.sp,
                         height: 60.sp,
-                        userReview.userImage!,
+                        productReview.userImage!,
                         fit: BoxFit.cover,
                       ),
               ),
@@ -55,7 +57,7 @@ class UserReviewItemWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      userReview.name,
+                      productReview.name,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: getRegularStyle(
@@ -65,7 +67,7 @@ class UserReviewItemWidget extends StatelessWidget {
                     ),
                     4.h.height,
                     Text(
-                      userReview.review,
+                      productReview.review,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: getLightStyle(
@@ -82,20 +84,15 @@ class UserReviewItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: List.generate(
               5,
-              (index) => Container(
-                width: 20.sp,
-                height: 20.sp,
-                margin: EdgeInsets.symmetric(horizontal: 2.w),
-                decoration: ShapeDecoration(
-                  color: index < (userReview.rating ?? 0)
-                      // color: Color(0xffFDCC0D),
-                      // color: Color(0xffFFDF00),
-                      ? const Color(0xffFF9529) // نجمة برتقالية
-                      : ColorManager.notificationDateTimeGrayColor
-                          .withOpacity(.5), // نجمة رمادية
-                  shape: const StarBorder(),
-                ),
-              ),
+              (index) => index < (productReview.rating ?? 0)
+                  ? const Icon(Icons.star,
+                      color: ColorManager.ratingColor // نجمة برتقالية
+                      )
+                  : Icon(
+                      Icons.star_border,
+                      color: ColorManager.notificationDateTimeGrayColor
+                          .withOpacity(.5),
+                    ),
             ),
           ),
         ],
@@ -103,7 +100,3 @@ class UserReviewItemWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
