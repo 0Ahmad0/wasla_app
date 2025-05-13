@@ -19,102 +19,109 @@ class BottomSheetAddYourRateWidget extends GetView<ProductDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(
-              Icons.close,
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+              dense: true,
+              leading: IconButton(
+                onPressed: () => Get.back(),
+                icon: const Icon(
+                  Icons.close,
+                ),
+              ),
+              title: const Text(
+                'أضف تعليق ورأي',
+              ),
             ),
-          ),
-          title: const Text(
-            'أضف تعليق ورأي',
-          ),
-        ),
-        const Divider(
-          thickness: .5,
-        ),
-        AppPadding(
-          vPadding: 8,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                dense: true,
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(AssetsManager.appIcon),
-                ),
-                title: Text('أحمد الحريري'),
-                subtitle: Text.rich(
-                  TextSpan(
-                    children: [
+            const Divider(
+              thickness: .5,
+            ),
+            AppPadding(
+              vPadding: 8,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    dense: true,
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(AssetsManager.appIcon),
+                    ),
+                    title: Text('أحمد الحريري'),
+                    subtitle: Text.rich(
                       TextSpan(
-                          text: 'الطلب رقم',
-                          style: getRegularStyle(
-                              color: ColorManager.textPrimaryColor)),
-                      TextSpan(
-                        text: '  #FG1250H',
-                        style: getMediumStyle(
-                          color: ColorManager.primaryColor,
-                          fontSize: 12,
-                        ),
+                        children: [
+                          TextSpan(
+                              text: 'الطلب رقم',
+                              style: getRegularStyle(
+                                  color: ColorManager.textPrimaryColor)),
+                          TextSpan(
+                            text: '  #FG1250H',
+                            style: getMediumStyle(
+                              color: ColorManager.primaryColor,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  10.h.height,
+                  RatingBar.builder(
+                    initialRating: controller.rating.value,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: false,
+                    itemCount: 5,
+                    unratedColor: ColorManager.notificationDateTimeGrayColor,
+                    itemPadding: EdgeInsets.symmetric(horizontal: 4.w),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: ColorManager.ratingColor,
+                    ),
+                    onRatingUpdate: (rate) => controller.onRatingUpdate(rate),
+                  ),
+                  10.h.height,
+                  Form(
+                    key: controller.rateKey,
+                    child: AppTextField(
+                      controller: controller.reteTextController,
+                      minLine: 2,
+                      maxLine: 3,
+                      textInputAction: TextInputAction.newline,
+                      keyboardType: TextInputType.multiline,
+                      hintText: 'رأيك يهمنا... لنصبح الأفضل معًا!',
+                    ),
+                  ),
+                  10.h.height,
+                  AppButtonWidget(
+                    text: 'تقييم الآن',
+                    onPressed: () {
+                      if (controller.rateKey.currentState?.validate() ?? false) {
+                        final review = UserReviewModel(
+                            name: 'مستخدم جديد',
+                            review: controller.reteTextController.text,
+                            rating: int.parse(
+                              controller.rating.value.toStringAsFixed(0),
+                            ));
+                        // controller.addReview(review);
+                        Get.back();
+                      }
+                    },
+                  )
+                ],
               ),
-              10.h.height,
-              RatingBar.builder(
-                initialRating: controller.rating.value,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: false,
-                itemCount: 5,
-                unratedColor: ColorManager.notificationDateTimeGrayColor,
-                itemPadding: EdgeInsets.symmetric(horizontal: 4.w),
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: ColorManager.ratingColor,
-                ),
-                onRatingUpdate: (rate) => controller.onRatingUpdate(rate),
-              ),
-              10.h.height,
-              Form(
-                key: controller.rateKey,
-                child: AppTextField(
-                  controller: controller.reteTextController,
-                  minLine: 2,
-                  maxLine: 3,
-                  textInputAction: TextInputAction.newline,
-                  keyboardType: TextInputType.multiline,
-                  hintText: 'رأيك يهمنا... لنصبح الأفضل معًا!',
-                ),
-              ),
-              10.h.height,
-              AppButtonWidget(
-                text: 'تقييم الآن',
-                onPressed: () {
-                  if (controller.rateKey.currentState?.validate() ?? false) {
-                    final review = UserReviewModel(
-                        name: 'مستخدم جديد',
-                        review: controller.reteTextController.text,
-                        rating: int.parse(
-                          controller.rating.value.toStringAsFixed(0),
-                        ));
-                    // controller.addReview(review);
-                    Get.back();
-                  }
-                },
-              )
-            ],
-          ),
-        )
-      ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }

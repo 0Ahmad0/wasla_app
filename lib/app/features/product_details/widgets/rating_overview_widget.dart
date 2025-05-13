@@ -49,8 +49,9 @@ class RatingOverviewWidget extends StatelessWidget {
               InkWell(
                 onTap: () {
                   AppBottomSheet(
-                    widget: BottomSheetAddYourRateWidget()
-                  ).showAppBottomSheet(context);
+                    widget: BottomSheetAddYourRateWidget(),
+
+                  ).showAppBottomSheet(context,isScrollControlled: true);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
