@@ -1,10 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:wasla_app/app/features/product_details/widgets/bottom_sheet_add_your_rate_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/dialogs/app_bottom_sheet.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
+import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
 class RatingOverviewWidget extends StatelessWidget {
@@ -22,7 +24,12 @@ class RatingOverviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(
+          AppRoutes.productReviews,
+          arguments: {}
+        );
+      },
       child: Row(
         children: [
           Column(

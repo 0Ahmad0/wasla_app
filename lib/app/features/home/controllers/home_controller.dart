@@ -574,7 +574,18 @@ class HomeController extends GetxController {
     // ⚠️ أكمل الفئات من 11 إلى 20 بنفس الطريقة حسب حاجتك
   ].obs;
 
-  final Rx<Offset> fabPosition =  Offset.zero.obs;
+  List<ProductModel> get favoriteProducts {
+    final List<ProductModel> allProducts =
+        categoriesList.expand((category) => category.products).toList();
+
+    return allProducts
+        .where(
+          (product) => product.isFav.value,
+        )
+        .toList();
+  }
+
+  final Rx<Offset> fabPosition = Offset.zero.obs;
   RxInt itemCount = 0.obs;
   RxInt activeIndex = 0.obs;
   int activeCategoryIndex = 0;
@@ -627,7 +638,6 @@ class HomeController extends GetxController {
   bool isCurrentCategoryIndex(index) => activeCategoryIndex == index;
 
   bool isFavorite(isFav) {
-
     return isFav = !isFav;
   }
 

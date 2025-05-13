@@ -14,6 +14,8 @@ import 'package:wasla_app/app/features/customer_support/views/customer_support_v
 import 'package:wasla_app/app/features/customer_support/views/media_viewer_view.dart';
 import 'package:wasla_app/app/features/faqs/bindings/faqs_binding.dart';
 import 'package:wasla_app/app/features/faqs/views/faqs_view.dart';
+import 'package:wasla_app/app/features/favorite/bindings/favorite_binding.dart';
+import 'package:wasla_app/app/features/favorite/views/favorite_view.dart';
 import 'package:wasla_app/app/features/home/bindings/home_binding.dart';
 import 'package:wasla_app/app/features/home/views/home_view.dart';
 import 'package:wasla_app/app/features/menu/bindings/menu_binding.dart';
@@ -37,6 +39,7 @@ import '../../app/features/about/bindings/about_binding.dart';
 import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
 import '../../app/features/onboarding/views/onboarding_view.dart';
+import '../../app/features/product_details/views/product_reviews_view.dart';
 import '../../app/features/settings/bindings/settings_binding.dart';
 import '../../app/features/settings/views/settings_view.dart';
 import '../../app/features/splash/views/splash_view.dart';
@@ -81,7 +84,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.navbar,
       page: () => NavbarView(),
-      binding: BindingsBuilder((){
+      binding: BindingsBuilder(() {
         NavbarBinding().dependencies();
         HomeBinding().dependencies();
         MenuBinding().dependencies();
@@ -131,41 +134,42 @@ class AppPages {
       binding: MediaViewerBinding(),
     ),
     GetPage(
-      name: AppRoutes.faqs,
-      page: () => FAQsView(),
-      binding: FAQsBinding()
-    ),
-     GetPage(
-      name: AppRoutes.myAddress,
-      page: () => MyAddressView(),
-      binding: MyAddressBinding()
+        name: AppRoutes.faqs, page: () => FAQsView(), binding: FAQsBinding()),
+    GetPage(
+        name: AppRoutes.myAddress,
+        page: () => MyAddressView(),
+        binding: MyAddressBinding()),
+    GetPage(
+        name: AppRoutes.addNewAddress,
+        page: () => AddNewAddressView(),
+        binding: MyAddressBinding()),
+    GetPage(
+        name: AppRoutes.settings,
+        page: () => SettingsView(),
+        binding: SettingsBinding()),
+    GetPage(
+        name: AppRoutes.usersReviews,
+        page: () => UsersReviewsView(),
+        binding: UsersReviewsBinding()),
+    GetPage(
+        name: AppRoutes.productDetails,
+        page: () => ProductDetailsView(),
+        binding: ProductDetailsBinding()),
+    GetPage(
+        name: AppRoutes.about,
+        page: () => AboutView(),
+        binding: AboutBinding()),
+    GetPage(
+      name: AppRoutes.productReviews,
+      page: () => ProductReviewsView(),
+      binding: ProductDetailsBinding(),
     ),
     GetPage(
-      name: AppRoutes.addNewAddress,
-      page: () => AddNewAddressView(),
-      binding: MyAddressBinding()
-    ),
-    GetPage(
-      name: AppRoutes.settings,
-      page: () => SettingsView(),
-      binding: SettingsBinding()
-    ),
-    GetPage(
-      name: AppRoutes.usersReviews,
-      page: () => UsersReviewsView(),
-      binding: UsersReviewsBinding()
-    ),
-    GetPage(
-      name: AppRoutes.productDetails,
-      page: () => ProductDetailsView(),
-      binding: ProductDetailsBinding()
+      name: AppRoutes.favorite,
+      page: () => FavoriteView(),
+      binding: FavoriteBinding(),
     ),
 
-    GetPage(
-      name: AppRoutes.about,
-      page: () => AboutView(),
-      binding: AboutBinding()
-    ),
 
 
     GetPage(

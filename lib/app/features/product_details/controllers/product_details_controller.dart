@@ -2,14 +2,93 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibration/vibration.dart';
+import 'package:wasla_app/app/features/product_details/model/product_review_model.dart';
 
+import '../../../../core/assets_manager.dart';
 import '../../home/model/product_model.dart';
 
 class ProductDetailsController extends GetxController {
-  late final ProductModel? product;
+  final RxList<ProductReviewModel> productUsersReviews = <ProductReviewModel>[
+    ProductReviewModel(
+      name: "أحمد العلي",
+      review: "منتج ممتاز، يعمل بشكل رائع وذو جودة عالية. أنصح به بشدة!",
+      userImage: AssetsManager.appIcon,
+      rating: 5,
+    ),
+    ProductReviewModel(
+      name: "ليلى يوسف",
+      review: "المنتج جيد لكن حجم القطعة أصغر من المتوقع.",
+      userImage: null,
+      rating: 4,
+    ),
+    ProductReviewModel(
+      name: "محمد سالم",
+      review: "المنتج ليس كما في الصورة، جودة الخامة ضعيفة.",
+      userImage: AssetsManager.onBoarding2IMG,
+      rating: 2,
+    ),
+    ProductReviewModel(
+      name: "نور الحسن",
+      review: "المنتج رائع ويعمل كما هو موضح في الوصف. أوصي به!",
+      userImage: null,
+      rating: 5,
+    ),
+    ProductReviewModel(
+      name: "خالد فهد",
+      review: "المنتج جيد ولكن أعتقد أنه يمكن تحسين التصميم.",
+      userImage: 'assets/images/img.png',
+      rating: 3,
+    ),
+    ProductReviewModel(
+      name: "سمية محمد",
+      review: "جودة المنتج سيئة، لا يعمل كما هو متوقع.",
+      userImage: 'assets/images/img.png',
+      rating: 1,
+    ),
+    ProductReviewModel(
+      name: "علي الزهراني",
+      review: "المنتج ممتاز لكن يحتاج وقتًا طويلاً للشحن.",
+      userImage: null,
+      rating: 4,
+    ),
+    ProductReviewModel(
+      name: "سارة فهد",
+      review: "منتج مدهش، أعتقد أنه أفضل من المنتجات الأخرى التي جربتها.",
+      userImage: 'assets/images/img.png',
+      rating: 5,
+    ),
+    ProductReviewModel(
+      name: "حسن محمد",
+      review: "المنتج متوسط، لم يكن بالحد المتوقع.",
+      userImage: null,
+      rating: 3,
+    ),
+    ProductReviewModel(
+      name: "منى عبد الله",
+      review: "المنتج جاء مع عيوب في التصنيع. للأسف، خيبة أمل كبيرة.",
+      userImage: 'assets/images/img.png',
+      rating: 2,
+    ),
+    ProductReviewModel(
+      name: "محمود عادل",
+      review: "المنتج جيد ولكنه جاء متأخرًا جدًا.",
+      userImage: null,
+      rating: 3,
+    ),
+    ProductReviewModel(
+      name: "فاطمة علي",
+      review: "منتج جيد، لا بأس به لكن كان يمكن أن يكون أفضل.",
+      userImage: 'assets/images/img.png',
+      rating: 4,
+    ),
+  ].obs;
+
   final rateKey = GlobalKey<FormState>();
   final reteTextController = TextEditingController();
+
   RxDouble rating = 2.0.obs;
+  late final ProductModel? product;
+
 
   RxInt productQuantity = 1.obs;
   final int maxQuantity = 20;
@@ -22,9 +101,14 @@ class ProductDetailsController extends GetxController {
     'https://picsum.photos/id/1025/200/200',
     'https://picsum.photos/id/1020/200/200'
   ];
-
   void onRatingUpdate(double rate) {
     rating.value = rate;
+  }
+
+  void addReview(ProductReviewModel review) {
+    productUsersReviews.add(review);
+    reteTextController.clear();
+
   }
 
   void vibrateDevice() async {

@@ -92,6 +92,7 @@ class StringsManager {
   static const String faqText = "FAQs";
   static const String aboutAppText = "حول التطبيق";
   static const String userReviewsText = "آراء المستخدمين";
+  static const String customerReviewsText = "آراء الزبائن";
   static const String settingsText = "الإعدادات";
   static const String logoutText = "تسجيل الخروج";
 

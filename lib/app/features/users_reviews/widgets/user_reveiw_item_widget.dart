@@ -82,20 +82,18 @@ class UserReviewItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: List.generate(
               5,
-              (index) => Container(
-                width: 20.sp,
-                height: 20.sp,
-                margin: EdgeInsets.symmetric(horizontal: 2.w),
-                decoration: ShapeDecoration(
-                  color: index < (userReview.rating ?? 0)
-                      ? ColorManager.ratingColor // نجمة برتقالية
-                      : ColorManager.notificationDateTimeGrayColor
-                          .withOpacity(.5), // نجمة رمادية
-                  shape: const StarBorder(),
-                ),
+                  (index) => index < (userReview.rating ?? 0)
+                  ? const Icon(Icons.star,
+                  color: ColorManager.ratingColor // نجمة برتقالية
+              )
+                  : Icon(
+                Icons.star_border,
+                color: ColorManager.notificationDateTimeGrayColor
+                    .withOpacity(.5),
               ),
             ),
           ),
+
         ],
       ),
     );

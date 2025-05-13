@@ -47,6 +47,7 @@ class MenuAppController extends GetxController {
     MenuItemModel(
       title: StringsManager.favoriteText,
       icon: AssetsManager.menuFavoriteIcon,
+      route: AppRoutes.favorite,
     ),
     MenuItemModel(
         title: StringsManager.notificationsText,
@@ -84,14 +85,13 @@ class MenuAppController extends GetxController {
   ];
   final List<MenuItemModel> bloc4Items = [
     MenuItemModel(
-      title: StringsManager.logoutText,
-      icon: AssetsManager.menuLogoutIcon,
-      route: null,
-      onTap: (){
-        AppDialog(
-          widget: LogoutDialogWidget(),
-        ).showAppDialog(Get.context!);
-      }
-    ),
+        title: StringsManager.logoutText,
+        icon: AssetsManager.menuLogoutIcon,
+        route: null,
+        onTap: () {
+          AppDialog(
+            widget: LogoutDialogWidget(),
+          ).showAppDialog(Get.context!);
+        }),
   ];
 }

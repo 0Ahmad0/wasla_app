@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:wasla_app/app/features/home/model/product_model.dart';
 import 'package:wasla_app/app/features/product_details/controllers/product_details_controller.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
@@ -13,6 +14,7 @@ import '../../../../core/strings_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_textfield_widget.dart';
 import '../../users_reviews/model/user_review_model.dart';
+import '../model/product_review_model.dart';
 
 class BottomSheetAddYourRateWidget extends GetView<ProductDetailsController> {
   const BottomSheetAddYourRateWidget({super.key});
@@ -105,13 +107,13 @@ class BottomSheetAddYourRateWidget extends GetView<ProductDetailsController> {
                     text: 'تقييم الآن',
                     onPressed: () {
                       if (controller.rateKey.currentState?.validate() ?? false) {
-                        final review = UserReviewModel(
+                        final review = ProductReviewModel(
                             name: 'مستخدم جديد',
                             review: controller.reteTextController.text,
                             rating: int.parse(
                               controller.rating.value.toStringAsFixed(0),
                             ));
-                        // controller.addReview(review);
+                         controller.addReview(review);
                         Get.back();
                       }
                     },
