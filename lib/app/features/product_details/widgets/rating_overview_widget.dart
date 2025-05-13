@@ -22,9 +22,7 @@ class RatingOverviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-
-      },
+      onTap: () {},
       child: Row(
         children: [
           Column(
@@ -50,8 +48,7 @@ class RatingOverviewWidget extends StatelessWidget {
                 onTap: () {
                   AppBottomSheet(
                     widget: BottomSheetAddYourRateWidget(),
-
-                  ).showAppBottomSheet(context,isScrollControlled: true);
+                  ).showAppBottomSheet(context, isScrollControlled: true);
                 },
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
@@ -63,9 +60,8 @@ class RatingOverviewWidget extends StatelessWidget {
                       Text(
                         "($totalReviews أضف رأيك)",
                         style: getRegularStyle(
-                          color: ColorManager.notificationDateTimeGrayColor,
-                          fontSize: 12
-                        ),
+                            color: ColorManager.notificationDateTimeGrayColor,
+                            fontSize: 12),
                       ),
                       4.w.width,
                       Icon(
