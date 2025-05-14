@@ -1,3 +1,42 @@
+# workflows:
+#   build_and_notify:
+#     name: Build APK and Send to Telegram
+#     max_build_duration: 30
+#     environment:
+#       flutter: "3.24.3"
+#       groups:
+#         - apk  # تضمين مجموعة environment variables
+
+#     triggering:
+#       events:
+#         - push  # يفعل build عند كل push
+#       branch_patterns:
+#         - pattern: "*"
+#           include: true
+#       cancel_previous_builds: true
+
+#     scripts:
+#       - name: Install dependencies
+#         script: flutter pub get
+
+#       - name: Build APK (split-per-abi)
+#         script: flutter build apk --split-per-abi
+
+#       - name: Send APK (armeabi-v7a) to Telegram
+#         script: |
+#           curl -F document=@build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk \
+#                -F chat_id=$TELEGRAM_CHAT_ID \
+#                -F caption="✅ APK (armeabi-v7a) جاهز 🔧" \
+#                https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
+
+#       - name: Send APK (arm64-v8a) to Telegram
+#         script: |
+#           curl -F document=@build/app/outputs/flutter-apk/app-arm64-v8a-release.apk \
+#                -F chat_id=$TELEGRAM_CHAT_ID \
+#                -F caption="✅ APK (arm64-v8a) جاهز 🚀" \
+#                https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
+
+
 workflows:
   build_and_notify:
     name: Build APK and Send to Telegram
@@ -22,16 +61,30 @@ workflows:
       - name: Build APK (split-per-abi)
         script: flutter build apk --split-per-abi
 
-      - name: Send APK (armeabi-v7a) to Telegram
+      - name: Send APK (armeabi-v7a) to Telegram (Group + Personal)
         script: |
+          # إرسال إلى المجموعة
           curl -F document=@build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk \
-               -F chat_id=$TELEGRAM_CHAT_ID \
-               -F caption="✅ APK (armeabi-v7a) جاهز 🔧" \
+               -F chat_id=-4725346488 \
+               -F caption="✅ APK (armeabi-v7a) جاهز للمجموعة 🔧" \
                https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
 
-      - name: Send APK (arm64-v8a) to Telegram
+          # إرسال إليك شخصيًا
+          curl -F document=@build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk \
+               -F chat_id=728121227 \
+               -F caption="✅ APK (armeabi-v7a) جاهز لك شخصيًا 💌" \
+               https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
+
+      - name: Send APK (arm64-v8a) to Telegram (Group + Personal)
         script: |
+          # إرسال إلى المجموعة
           curl -F document=@build/app/outputs/flutter-apk/app-arm64-v8a-release.apk \
-               -F chat_id=$TELEGRAM_CHAT_ID \
-               -F caption="✅ APK (arm64-v8a) جاهز 🚀" \
+               -F chat_id=-4725346488 \
+               -F caption="✅ APK (arm64-v8a) جاهز للمجموعة 🚀" \
+               https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
+
+          # إرسال إليك شخصيًا
+          curl -F document=@build/app/outputs/flutter-apk/app-arm64-v8a-release.apk \
+               -F chat_id=728121227 \
+               -F caption="✅ APK (arm64-v8a) جاهز لك شخصيًا 💌" \
                https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
