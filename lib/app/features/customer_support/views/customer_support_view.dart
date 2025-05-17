@@ -15,7 +15,7 @@ class CustomerSupportView extends GetView<CustomerSupportController> {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(()=>CustomerSupportController());
+    Get.lazyPut(() => CustomerSupportController());
     return Scaffold(
       appBar: AppBarWidget(
         title: StringsManager.customerSupportText,
@@ -24,18 +24,20 @@ class CustomerSupportView extends GetView<CustomerSupportController> {
         children: [
           Expanded(
             child: Obx(() => ListView.builder(
-              padding: EdgeInsets.symmetric(
-                horizontal: 24.w,
-                vertical: 10.h
-              ),
-              reverse: true,
-              itemCount: controller.messages.length,
-              itemBuilder: (context, index) {
-                return ContainerMessageWidget(message: controller.messages[index],);
-              },
-            )),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 24.w, vertical: 10.h),
+                  // reverse: true,
+                  itemCount: controller.messages.length,
+                  itemBuilder: (context, index) {
+                    return ContainerMessageWidget(
+                      message: controller.messages.reversed.toList()[index],
+                    );
+                  },
+                )),
           ),
-          InputAreaWidget(controller: controller,),
+          InputAreaWidget(
+            controller: controller,
+          ),
         ],
       ),
     );

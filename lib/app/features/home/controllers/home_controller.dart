@@ -35,7 +35,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat1',
       name: 'ملابس رجالية',
-      imageUrl: 'https://picsum.photos/id/1011/400/200',
+      // imageUrl: 'https://picsum.photos/id/1011/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/327535/shirt.svg',
       products: [
         ProductModel(
           id: 'p1',
@@ -138,7 +139,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat2',
       name: 'ملابس نسائية',
-      imageUrl: 'https://picsum.photos/id/1016/400/200',
+      // imageUrl: 'https://picsum.photos/id/1016/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/46435/long-party-dress.svg',
       products: [
         ProductModel(
           id: 'p3',
@@ -193,7 +195,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat3',
       name: 'أحذية',
-      imageUrl: 'https://picsum.photos/id/1021/400/200',
+      // imageUrl: 'https://picsum.photos/id/1021/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/42885/sport-shoe.svg',
       products: [
         ProductModel(
           id: 'p5',
@@ -248,7 +251,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat4',
       name: 'إلكترونيات',
-      imageUrl: 'https://picsum.photos/id/1031/400/200',
+      // imageUrl: 'https://picsum.photos/id/1031/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/528340/laptop.svg',
       products: [
         ProductModel(
           id: 'p7',
@@ -315,7 +319,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat5',
       name: 'هواتف محمولة',
-      imageUrl: 'https://picsum.photos/id/1040/400/200',
+      // imageUrl: 'https://picsum.photos/id/1040/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/379074/mobile-phone.svg',
       products: [
         ProductModel(
           id: 'p9',
@@ -370,7 +375,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat6',
       name: 'أجهزة منزلية',
-      imageUrl: 'https://picsum.photos/id/1050/400/200',
+      // imageUrl: 'https://picsum.photos/id/1050/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/108862/vacuum-cleaner-machine.svg',
       products: [
         ProductModel(
           id: 'p11',
@@ -413,7 +419,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat7',
       name: 'أثاث',
-      imageUrl: 'https://picsum.photos/id/1060/400/200',
+      // imageUrl: 'https://picsum.photos/id/1060/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/5891/vintage-armchair.svg',
       products: [
         ProductModel(
           id: 'p13',
@@ -456,7 +463,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat8',
       name: 'مستحضرات تجميل',
-      imageUrl: 'https://picsum.photos/id/1070/400/200',
+      // imageUrl: 'https://picsum.photos/id/1070/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/16887/lipstick.svg',
       products: [
         ProductModel(
           id: 'p15',
@@ -475,7 +483,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat9',
       name: 'عطور',
-      imageUrl: 'https://picsum.photos/id/1080/400/200',
+      // imageUrl: 'https://picsum.photos/id/1080/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/482597/perfume-4.svg',
       products: [
         ProductModel(
           id: 'p17',
@@ -518,7 +527,8 @@ class HomeController extends GetxController {
     CategoryModel(
       id: 'cat10',
       name: 'ساعات وإكسسوارات',
-      imageUrl: 'https://picsum.photos/id/1090/400/200',
+      // imageUrl: 'https://picsum.photos/id/1090/400/200',
+      imageUrl: 'https://www.svgrepo.com/download/377118/watch.svg',
       products: [
         ProductModel(
           id: 'p19',

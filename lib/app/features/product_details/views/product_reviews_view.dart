@@ -24,10 +24,10 @@ class ProductReviewsView extends GetView<ProductDetailsController> {
         title: StringsManager.customerReviewsText,
       ),
       body: Obx(()=>ListView.separated(
-        reverse: true,
+        // reverse: true,
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 10.h),
         itemBuilder: (context, index) {
-          final productReview = controller.productUsersReviews[index];
+          final productReview = controller.productUsersReviews.reversed.toList()[index];
           return ProductReviewItemWidget(productReview: productReview,);
         },
         separatorBuilder: (_, __) => 8.h.height,

@@ -43,7 +43,10 @@ class MenuAppController extends GetxController {
   ];
   final List<MenuItemModel> bloc2Items = [
     MenuItemModel(
-        title: StringsManager.cartText, icon: AssetsManager.menuCartIcon),
+      title: StringsManager.cartText,
+      icon: AssetsManager.menuCartIcon,
+      route: AppRoutes.cart
+    ),
     MenuItemModel(
       title: StringsManager.favoriteText,
       icon: AssetsManager.menuFavoriteIcon,

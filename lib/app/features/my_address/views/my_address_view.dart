@@ -33,7 +33,7 @@ class MyAddressView extends GetView<MyAddressController> {
       body: Obx(()=>ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 10.h),
         itemBuilder: (context, index) {
-          final address = controller.myAddressList[index];
+          final address = controller.myAddressList.reversed.toList()[index];
           return MyAddressItemWidget(
             index: index,
             address: address,

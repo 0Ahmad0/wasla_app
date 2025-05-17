@@ -25,7 +25,7 @@ class ShowProductImageWidget extends GetView<ProductDetailsController> {
         alignment: AlignmentDirectional.bottomCenter,
         children: [
           Obx(
-            () => ZoomIn(
+            () => FadeIn(
               key: Key(controller.activeSubImageProductIndex.value.toString()),
               child: CachedImageWidget(
                 clipRadius: 12.r,
@@ -50,28 +50,26 @@ class ShowProductImageWidget extends GetView<ProductDetailsController> {
                         controller.activeSubImageProductIndex.value == index;
                     final imageItem = controller.otherImagesProduct[index];
                     return Expanded(
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(8.r),
-                        onTap: () =>
-                            controller.changeActiveSubImageProductIndex(index),
-                        child: AnimatedContainer(
-                          duration: const Duration(milliseconds: 400),
-                          margin: EdgeInsets.symmetric(
-                            horizontal: 8.w,
-                          ),
-                          decoration: BoxDecoration(
-                            color: ColorManager.secondaryColor.withOpacity(.25),
-                            borderRadius: BorderRadius.circular(8.r),
-                            border: isActive
-                                ? Border.all(
-                                    color: ColorManager.primaryColor, width: 2)
-                                : null,
-                          ),
-                          child: CachedImageWidget(
-                            imageUrl: imageItem,
-                            clipRadius: isActive ? 8.r : 0,
-                            width: 100.w,
-                            height: 80.w,
+                      child: ZoomIn(
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(8.r),
+                          onTap: () =>
+                              controller.changeActiveSubImageProductIndex(index),
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 400),
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 8.w,
+                            ),
+                            decoration: BoxDecoration(
+                              color: ColorManager.secondaryColor.withOpacity(.25),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
+                            child: CachedImageWidget(
+                              imageUrl: imageItem,
+                              clipRadius: isActive ? 8.r : 0,
+                              width: 100.w,
+                              height: 80.w,
+                            ),
                           ),
                         ),
                       ),

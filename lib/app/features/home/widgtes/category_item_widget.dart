@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/home/controllers/home_controller.dart';
 import 'package:wasla_app/app/widgets/cached_network_image_widget.dart';
@@ -24,41 +25,65 @@ class CategoryItemWidget extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
         init: HomeController(),
-        builder: (context)=>Column(
-      children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(
-            controller.isCurrentCategoryIndex(index) ? 12.r : 100.r,
-          ),
-          onTap: () => controller.changeCategoryIndex(index),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              color: ColorManager.secondaryColor.withOpacity(.25),
-              borderRadius: BorderRadius.circular(
-                  controller.isCurrentCategoryIndex(index) ? 100.r : 8.r),
-            ),
-            child: CachedImageWidget(
-              imageUrl: imageURL,
-              width: 70.sp,
-              height: 70.sp,
-            ),
-          ),
-        ),
-        4.h.height,
-        FittedBox(
-          child: Text(
-            name,
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: getLightStyle(
-              color: ColorManager.textPrimaryColor,
-            ),
-          ),
-        )
-      ],
-    ));
+        builder: (context) => Column(
+              children: [
+                InkWell(
+                  splashColor: ColorManager.transparentColor,
+                  borderRadius: BorderRadius.circular(
+                    controller.isCurrentCategoryIndex(index) ?  100.r: 8.r,
+                  ),
+                  onTap: () => controller.changeCategoryIndex(index),
+                  child: AnimatedContainer(
+                    width: 70.sp,
+                    height: 70.sp,
+                    padding: EdgeInsets.all(22.sp),
+                    duration: const Duration(milliseconds: 300),
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: controller.isCurrentCategoryIndex(index)
+                            ? ColorManager.secondaryColor
+                            : ColorManager.transparentColor,
+                      ),
+                      color: controller.isCurrentCategoryIndex(index)
+                          ? ColorManager.transparentColor
+                          : ColorManager.secondaryColor.withOpacity(.15),
+                      borderRadius: BorderRadius.circular(
+                          controller.isCurrentCategoryIndex(index)
+                              ? 100.r
+                              : 8.r),
+                    ),
+                    // CachedImageWidget(
+                    // imageUrl: imageURL,
+                    // width: 70.sp,
+                    // height: 70.sp,
+                    // )
+                    child: SvgPicture.network(
+                      imageURL,
+                      width: 28.sp,
+                      height: 28.sp,
+                      colorFilter: ColorFilter.mode(
+                        controller.isCurrentCategoryIndex(index)
+                            ? ColorManager.primaryColor
+                            : ColorManager.notificationProgressColor,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
+                ),
+                4.h.height,
+                FittedBox(
+                  child: Text(
+                    name,
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: getLightStyle(
+                      color: ColorManager.textPrimaryColor,
+                    ),
+                  ),
+                )
+              ],
+            ));
   }
 }

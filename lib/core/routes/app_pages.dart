@@ -6,6 +6,8 @@ import 'package:wasla_app/app/features/auth/views/login_view.dart';
 import 'package:wasla_app/app/features/auth/views/otp_view.dart';
 import 'package:wasla_app/app/features/auth/views/reset_password_view.dart';
 import 'package:wasla_app/app/features/auth/views/signup_view.dart';
+import 'package:wasla_app/app/features/cart/bindings/cart_binding.dart';
+import 'package:wasla_app/app/features/cart/views/cart_view.dart';
 import 'package:wasla_app/app/features/coupons/bindings/coupons_binding.dart';
 import 'package:wasla_app/app/features/coupons/views/coupons_view.dart';
 import 'package:wasla_app/app/features/customer_support/bindings/customer_support_binding.dart';
@@ -134,7 +136,10 @@ class AppPages {
       binding: MediaViewerBinding(),
     ),
     GetPage(
-        name: AppRoutes.faqs, page: () => FAQsView(), binding: FAQsBinding()),
+      name: AppRoutes.faqs,
+      page: () => FAQsView(),
+      binding: FAQsBinding(),
+    ),
     GetPage(
         name: AppRoutes.myAddress,
         page: () => MyAddressView(),
@@ -169,9 +174,11 @@ class AppPages {
       page: () => FavoriteView(),
       binding: FavoriteBinding(),
     ),
-
-
-
+    GetPage(
+      name: AppRoutes.cart,
+      page: () => CartView(),
+      binding: CartBinding(),
+    ),
     GetPage(
       name: AppRoutes.unknow,
       page: () => UnKnowView(),

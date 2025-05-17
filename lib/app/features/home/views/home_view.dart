@@ -14,6 +14,7 @@ import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
+import '../../../../core/routes/app_routes.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -57,16 +58,23 @@ class HomeView extends GetView<HomeController> {
                   ),
                   Row(
                     children: [
-                      CircleAvatar(
-                        radius: 26.sp,
-                        backgroundImage: const AssetImage(
-                          'assets/images/img.png',
+                      InkWell(
+                        borderRadius: BorderRadius.circular(100.r),
+                        onTap: () => Get.toNamed(AppRoutes.profile),
+                        child: CircleAvatar(
+                          radius: 26.sp,
+                          backgroundImage: const AssetImage(
+                            'assets/images/img.png',
+                          ),
                         ),
                       ),
                       10.w.width,
-                      const Icon(
-                        Icons.notifications,
-                        color: ColorManager.whiteColor,
+                      InkWell(
+                        onTap: () => Get.toNamed(AppRoutes.notification),
+                        child: const Icon(
+                          Icons.notifications,
+                          color: ColorManager.whiteColor,
+                        ),
                       )
                     ],
                   )
@@ -85,7 +93,6 @@ class HomeView extends GetView<HomeController> {
             ),
           );
         }
-
         return Stack(
           children: [
             CustomScrollView(
@@ -233,15 +240,15 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildBadgeFAB() {
-    return Obx(()=>Badge.count(
-      count: controller.itemCount.value,
-      child: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(
-          Icons.add_shopping_cart,
-          color: ColorManager.whiteColor,
-        ),
-      ),
-    ));
+    return Obx(() => Badge.count(
+          count: controller.itemCount.value,
+          child: FloatingActionButton(
+            onPressed: ()=>Get.toNamed(AppRoutes.cart,arguments: {}),
+            child: const Icon(
+              Icons.add_shopping_cart,
+              color: ColorManager.whiteColor,
+            ),
+          ),
+        ));
   }
 }
