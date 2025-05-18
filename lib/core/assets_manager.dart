@@ -47,6 +47,7 @@ class AssetsManager{
   static const String chatDocDownloadIcon = '$_iconPath/chat_doc_download_icon.svg';
   static const String aboutAppIcon = '$_iconPath/menu_abot_icon.svg';
   static const String searchArrowIcon = '$_iconPath/search_arrow.svg';
+  static const String cartDeleteIcon = '$_iconPath/cart_delete_icon.svg';
 
 
 

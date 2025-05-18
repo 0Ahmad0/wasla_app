@@ -47,7 +47,7 @@ class CategoryItemWidget extends GetView<HomeController> {
                       ),
                       color: controller.isCurrentCategoryIndex(index)
                           ? ColorManager.transparentColor
-                          : ColorManager.secondaryColor.withOpacity(.15),
+                          : ColorManager.secondaryColor.withOpacity(.1),
                       borderRadius: BorderRadius.circular(
                           controller.isCurrentCategoryIndex(index)
                               ? 100.r
@@ -65,9 +65,29 @@ class CategoryItemWidget extends GetView<HomeController> {
                       colorFilter: ColorFilter.mode(
                         controller.isCurrentCategoryIndex(index)
                             ? ColorManager.primaryColor
-                            : ColorManager.notificationProgressColor,
+                            : ColorManager.notificationDateTimeGrayColor,
                         BlendMode.srcIn,
                       ),
+                      placeholderBuilder: (context) => SizedBox(
+                        width: 28.sp,
+                        height: 28.sp,
+                        child: Center(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              controller.isCurrentCategoryIndex(index)
+                                  ? ColorManager.primaryColor
+                                  : ColorManager.notificationProgressColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      errorBuilder: (context, error, stackTrace) => Icon(
+                        Icons.error_outline,
+                        size: 28.sp,
+                        color: Colors.redAccent,
+                      ),
+
                     ),
                   ),
                 ),

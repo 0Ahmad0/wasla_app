@@ -87,6 +87,7 @@ class ProductDetailsController extends GetxController {
   final reteTextController = TextEditingController();
 
   RxDouble rating = 2.0.obs;
+
   late final ProductModel? product;
 
 
@@ -101,6 +102,7 @@ class ProductDetailsController extends GetxController {
     'https://picsum.photos/id/1025/200/200',
     'https://picsum.photos/id/1020/200/200'
   ];
+
   void onRatingUpdate(double rate) {
     rating.value = rate;
   }
@@ -108,7 +110,6 @@ class ProductDetailsController extends GetxController {
   void addReview(ProductReviewModel review) {
     productUsersReviews.add(review);
     reteTextController.clear();
-
   }
 
   void vibrateDevice() async {

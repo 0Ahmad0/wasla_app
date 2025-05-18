@@ -7,8 +7,8 @@ class AppDialog {
     this.widget,
   });
 
-  void showAppDialog(BuildContext context) {
-    showDialog(
+  Future<bool?> showAppDialog(BuildContext context) {
+    return showDialog(
       context: context,
       builder: (context) => widget ?? const SizedBox.shrink(),
     );

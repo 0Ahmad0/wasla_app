@@ -15,6 +15,7 @@ class ColorManager{
   static const Color blackColor = Colors.black;
   static const Color transparentColor = Colors.transparent;
   static const Color errorColor = Color(0xffEF5A56);
+  static const Color successColor = Color(0xff53a653);
   static const Color borderBackButtonColor = Color(0xffE5E7EB);
   static const Color notificationProgressColor = Color(0xffFB943A);
   static const Color menuGrayColor = Color(0xffF6F8FA);
