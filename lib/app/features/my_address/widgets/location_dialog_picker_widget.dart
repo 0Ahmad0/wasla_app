@@ -24,6 +24,7 @@ class LocationDialogPickerWidget extends GetView<MyAddressController> {
     return Obx(
       () => PopScope(
         canPop: false,
+
         child: FlutterMap(
           options: MapOptions(
             backgroundColor: ColorManager.chatContainerColor,
@@ -90,6 +91,9 @@ class LocationDialogPickerWidget extends GetView<MyAddressController> {
             )
           ],
         ),
+
+
+
       ),
     );
   }

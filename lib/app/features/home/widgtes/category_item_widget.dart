@@ -36,6 +36,7 @@ class CategoryItemWidget extends GetView<HomeController> {
                   child: AnimatedContainer(
                     width: 70.sp,
                     height: 70.sp,
+                    alignment: Alignment.center,
                     padding: EdgeInsets.all(22.sp),
                     duration: const Duration(milliseconds: 300),
                     clipBehavior: Clip.hardEdge,
@@ -83,9 +84,9 @@ class CategoryItemWidget extends GetView<HomeController> {
                         ),
                       ),
                       errorBuilder: (context, error, stackTrace) => Icon(
-                        Icons.error_outline,
-                        size: 28.sp,
+                        Icons.broken_image,
                         color: Colors.redAccent,
+                        size: 24.sp,
                       ),
 
                     ),

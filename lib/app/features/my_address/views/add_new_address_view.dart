@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:wasla_app/app/features/my_address/controllers/my_address_controller.dart';
+import 'package:wasla_app/app/features/my_address/views/location_picker_view.dart';
 import 'package:wasla_app/app/features/my_address/widgets/location_dialog_picker_widget.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
@@ -41,7 +42,7 @@ class AddNewAddressView extends GetView<MyAddressController> {
                 AppTextField(
                   controller: controller.locationTextController,
                   readOnly: true,
-                  onTap: () => _showMapDialog(),
+                  onTap: () => Get.to(()=> LocationPickerPage()),
                   hintText: 'اختيار الموقع من الخريطة',
                 ),
                 8.h.height,

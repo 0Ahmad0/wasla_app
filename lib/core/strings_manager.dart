@@ -257,4 +257,7 @@ class StringsManager {
 تحياتي،
 [اسمك]
 ''';
+
+  /// Payment Screen
+  static const String payMethodText = 'طريقة الدفع';
 }

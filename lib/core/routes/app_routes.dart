@@ -25,6 +25,7 @@ abstract class AppRoutes {
   static const productReviews = '/productReviews';
   static const favorite = '/favorite';
   static const cart = '/cart';
+  static const pay = '/pay';
 
 
 

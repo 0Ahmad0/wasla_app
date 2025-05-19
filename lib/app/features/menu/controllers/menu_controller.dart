@@ -59,6 +59,7 @@ class MenuAppController extends GetxController {
     MenuItemModel(
       title: StringsManager.paymentMethodsText,
       icon: AssetsManager.menuPayIcon,
+      route: AppRoutes.pay,
     ),
   ];
   final List<MenuItemModel> bloc3Items = [

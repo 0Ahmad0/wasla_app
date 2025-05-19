@@ -190,13 +190,13 @@ class CartController extends GetxController {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Get.snackbar('تنوبه', 'اسحب العنصر لحذفه',
           duration: const Duration(seconds: 2),
-          backgroundColor: ColorManager.ratingColor,
+          backgroundColor: ColorManager.textPrimaryColor,
           snackPosition: SnackPosition.BOTTOM,
           overlayColor: ColorManager.transparentColor,
           barBlur: 0.0,
           icon: const Icon(Icons.swipe, color: Colors.white),
           margin: EdgeInsets.symmetric(
-            horizontal: 24.w,
+            horizontal: 14.w,
             vertical: 40.h,
           ));
     });

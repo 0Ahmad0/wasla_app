@@ -28,6 +28,8 @@ import 'package:wasla_app/app/features/navbar/bindings/navbar_binding.dart';
 import 'package:wasla_app/app/features/navbar/views/navbar_view.dart';
 import 'package:wasla_app/app/features/notifications/bindings/notification_binding.dart';
 import 'package:wasla_app/app/features/notifications/views/notification_view.dart';
+import 'package:wasla_app/app/features/pay/bindings/pay_binding.dart';
+import 'package:wasla_app/app/features/pay/views/pay_view.dart';
 import 'package:wasla_app/app/features/product_details/bindings/product_details_binding.dart';
 import 'package:wasla_app/app/features/product_details/views/product_details_view.dart';
 import 'package:wasla_app/app/features/profile/bindings/profile_binding.dart';
@@ -178,7 +180,13 @@ class AppPages {
       name: AppRoutes.cart,
       page: () => CartView(),
       binding: CartBinding(),
+    ),GetPage(
+      name: AppRoutes.pay,
+      page: () => PayView(),
+      binding: PayBinding(),
     ),
+
+
     GetPage(
       name: AppRoutes.unknow,
       page: () => UnKnowView(),

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/my_address/model/my_address_model.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:wasla_app/app/features/my_address/model/my_address_model.dart';
 class MyAddressController extends GetxController{
   RxList<MyAddressModel> myAddressList = <MyAddressModel>[
     MyAddressModel(
@@ -51,8 +51,9 @@ class MyAddressController extends GetxController{
 
   final  addNewLocationFormKey= GlobalKey<FormState>();
 
-  // Rx<LatLng> selectedLocation = const LatLng(32.6432, 36.0857).obs;
-  Rx<LatLng?> selectedLocation = Rx<LatLng?>(null);
+ Rx<LatLng> selectedLocation = const LatLng(32.6432, 36.0857).obs;
+
+//  Rx<LatLng?> selectedLocation = Rx<LatLng?>(null);
   // الإحداثيات الخاصة بدرعا
 
   RxString locationName = ''.obs;

@@ -48,6 +48,10 @@ class AssetsManager{
   static const String aboutAppIcon = '$_iconPath/menu_abot_icon.svg';
   static const String searchArrowIcon = '$_iconPath/search_arrow.svg';
   static const String cartDeleteIcon = '$_iconPath/cart_delete_icon.svg';
+  static const String masterCardIcon = '$_iconPath/master_card.svg';
+  static const String barakeIcon = '$_iconPath/baraka.png';
+  static const String syriatelCashIcon = '$_iconPath/syriatel_cash.png';
+  static const String visaIcon = '$_iconPath/visa.svg';
 
 
 

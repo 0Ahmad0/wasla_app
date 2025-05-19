@@ -32,6 +32,7 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
             android:taskAffinity=""
@@ -64,6 +65,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDkPh8vuUbdAuQCSf971rWxQ_uTxvi2pqc"/>
         <!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
         <!--            android:value="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"/>-->
     </application>
