@@ -260,4 +260,5 @@ class StringsManager {
 
   /// Payment Screen
   static const String payMethodText = 'طريقة الدفع';
+  static const String addPaymentMethodText = 'أضف طريقة دفع جديدة';
 }

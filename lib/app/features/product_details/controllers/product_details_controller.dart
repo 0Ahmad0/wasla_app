@@ -82,7 +82,20 @@ class ProductDetailsController extends GetxController {
       rating: 4,
     ),
   ].obs;
-
+  final List<String> sizesProductList = [
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL',
+  ];
+  final List<Color> colorProductList = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.purple
+  ];
   final rateKey = GlobalKey<FormState>();
   final reteTextController = TextEditingController();
 
@@ -90,8 +103,10 @@ class ProductDetailsController extends GetxController {
 
   late final ProductModel? product;
 
-
   RxInt productQuantity = 1.obs;
+  RxInt sizeSelected = (-1).obs;
+  RxInt colorSelected = (1).obs;
+
   final int maxQuantity = 20;
   Timer? _timer;
   RxInt activeSubImageProductIndex = (-1).obs;
@@ -174,6 +189,7 @@ class ProductDetailsController extends GetxController {
     super.onInit();
     product = Get.arguments as ProductModel;
   }
+
   @override
   void onClose() {
     reteTextController.dispose();

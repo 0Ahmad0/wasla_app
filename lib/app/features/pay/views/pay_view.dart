@@ -19,7 +19,19 @@ class PayView extends GetView<PayController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: StringsManager.payMethodText),
+      appBar: AppBarWidget(
+        title: StringsManager.payMethodText,
+        actions: [
+          IconButton(
+            tooltip: StringsManager.addPaymentMethodText,
+            onPressed: () {},
+            icon: const Icon(
+              Icons.add,
+              color: ColorManager.whiteColor,
+            ),
+          )
+        ],
+      ),
       body: Column(
         children: [
           Expanded(

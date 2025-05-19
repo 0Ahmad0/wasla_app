@@ -39,43 +39,42 @@ class ShowProductImageWidget extends GetView<ProductDetailsController> {
             ),
           ),
           PositionedDirectional(
-            child: AppPadding(
-              hPadding: 0,
-              vPadding: 8,
-              child: Row(
-                children: List.generate(
-                  controller.otherImagesProduct.length,
-                  (index) => Obx(() {
-                    final bool isActive =
-                        controller.activeSubImageProductIndex.value == index;
-                    final imageItem = controller.otherImagesProduct[index];
-                    return Expanded(
-                      child: ZoomIn(
-                        child: InkWell(
+            end: 10.w,
+            bottom: 0,
+            top: 0,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: List.generate(
+                controller.otherImagesProduct.length,
+                (index) => Obx(() {
+                  final bool isActive =
+                      controller.activeSubImageProductIndex.value == index;
+                  final imageItem = controller.otherImagesProduct[index];
+                  return ZoomIn(
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(8.r),
+                      onTap: () =>
+                          controller.changeActiveSubImageProductIndex(index),
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 400),
+                        margin: EdgeInsets.symmetric(
+                          vertical: 2.h
+                        ),
+                        decoration: BoxDecoration(
+                          color: ColorManager.secondaryColor.withOpacity(.25),
                           borderRadius: BorderRadius.circular(8.r),
-                          onTap: () =>
-                              controller.changeActiveSubImageProductIndex(index),
-                          child: AnimatedContainer(
-                            duration: const Duration(milliseconds: 400),
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 8.w,
-                            ),
-                            decoration: BoxDecoration(
-                              color: ColorManager.secondaryColor.withOpacity(.25),
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                            child: CachedImageWidget(
-                              imageUrl: imageItem,
-                              clipRadius: isActive ? 8.r : 0,
-                              width: 100.w,
-                              height: 80.w,
-                            ),
-                          ),
+                        ),
+                        child: CachedImageWidget(
+                          imageUrl: imageItem,
+                          clipRadius: isActive ? 8.r : 0,
+                          width: 50.w,
+                          height: 50.w,
                         ),
                       ),
-                    );
-                  }),
-                ),
+                    ),
+                  );
+                }),
               ),
             ),
           )
