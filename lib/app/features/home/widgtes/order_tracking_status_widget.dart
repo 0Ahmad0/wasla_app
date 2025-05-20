@@ -4,7 +4,6 @@ import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/style_manager.dart';
-import 'package:timeline_tile/timeline_tile.dart';
 
 import '../../../widgets/vertical_stepper/vertical_stepper_model.dart';
 import '../../../widgets/vertical_stepper/vertical_stepper_widget.dart';
