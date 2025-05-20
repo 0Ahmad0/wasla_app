@@ -7,6 +7,7 @@ import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/home/widgtes/carousel_home_item_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/category_item_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/custom_home_appbar.dart';
+import 'package:wasla_app/app/features/home/widgtes/order_tracking_status_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/product_item_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
@@ -141,6 +142,16 @@ class HomeView extends GetView<HomeController> {
                         ),
                       ),
                       4.h.height,
+                      Visibility(
+                        //TODO : Visibility on order accepted
+                        child: Column(
+                          children: [
+                            OrderTrackingStatusWidget(),
+                            8.h.height,
+
+                          ],
+                        ),
+                      )
                     ],
                   ),
                 ),
@@ -243,7 +254,7 @@ class HomeView extends GetView<HomeController> {
     return Obx(() => Badge.count(
           count: controller.itemCount.value,
           child: FloatingActionButton(
-            onPressed: ()=>Get.toNamed(AppRoutes.cart,arguments: {}),
+            onPressed: () => Get.toNamed(AppRoutes.cart, arguments: {}),
             child: const Icon(
               Icons.add_shopping_cart,
               color: ColorManager.whiteColor,

@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/cart/controllers/cart_controller.dart';
 import 'package:wasla_app/app/features/cart/widgets/cart_item_widget.dart';
+import 'package:wasla_app/app/features/cart/widgets/success_complete_order_dialog_widget.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/dialogs/app_bottom_sheet.dart';
+import 'package:wasla_app/core/dialogs/app_dialog.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
@@ -102,7 +104,9 @@ class CartView extends GetView<CartController> {
                       AppButtonWidget(
                         text: 'إتمام الطلب',
                          onPressed: () {
-
+                          AppDialog(
+                            widget:const SuccessCompleteOrderDialogWidget()
+                          ).showAppDialog(context);
                         },
                       ),
                     ],

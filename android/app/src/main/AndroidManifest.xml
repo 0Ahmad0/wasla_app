@@ -62,14 +62,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-<!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
-<!--            android:value="AIzaSyDkPh8vuUbdAuQCSf971rWxQ_uTxvi2pqc"/>-->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDkPh8vuUbdAuQCSf971rWxQ_uTxvi2pqc"/>
         <!--        Google API KEY          -->
-                <meta-data
-                    android:name="com.google.android.geo.API_KEY"
-                    android:value="${MAPS_API_KEY}" />
-        <!--        <meta-data android:name="com.google.android.geo.API_KEY"-->
-        <!--            android:value="AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg"/>-->
+<!--                <meta-data-->
+<!--                    android:name="com.google.android.geo.API_KEY"-->
+<!--                    android:value="${MAPS_API_KEY}" />-->
+
     </application>
     <queries>
         <intent>
