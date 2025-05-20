@@ -127,10 +127,10 @@ dependencies:
 
   #For Launch Url, email, phone, whatsapp, ...etc From Link
   url_launcher: ^6.3.1
+  timeline_tile: ^2.0.0
 
   #For Order Status In App
-  easy_stepper: ^0.8.5+1
-  timeline_tile: ^2.0.0
+
 
 
 
