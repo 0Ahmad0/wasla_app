@@ -53,6 +53,8 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         builder: (context, child) {
           return Obx(() => GetMaterialApp(
+            scrollBehavior: const ScrollBehavior().copyWith(
+    physics: const BouncingScrollPhysics()), 
                 locale: const Locale('ar'),
                 title: StringsManager.appName,
                 debugShowCheckedModeBanner: false,
