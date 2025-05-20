@@ -5,22 +5,21 @@ import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/style_manager.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+
+import '../../../widgets/vertical_stepper/vertical_stepper_model.dart';
+import '../../../widgets/vertical_stepper/vertical_stepper_widget.dart';
+
 class OrderTrackingStatusWidget extends StatelessWidget {
   const OrderTrackingStatusWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: 10.w
-      ),
+      margin: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: ColorManager.notificationDateTimeGrayColor,
-          width: .5
-        ),
-        borderRadius: BorderRadius.circular(8.r)
-      ),
+          border: Border.all(
+              color: ColorManager.notificationDateTimeGrayColor, width: .5),
+          borderRadius: BorderRadius.circular(8.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,7 +30,7 @@ class OrderTrackingStatusWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: getBoldStyle(color: ColorManager.primaryColor),
           ),
-         2.h.height,
+          2.h.height,
           AppPadding(
             vPadding: 0,
             child: Text(
@@ -43,94 +42,39 @@ class OrderTrackingStatusWidget extends StatelessWidget {
             ),
           ),
           Theme(
-            data: Theme.of(context).copyWith(
-              dividerColor: ColorManager.transparentColor
-            ),
+            data: Theme.of(context)
+                .copyWith(dividerColor: ColorManager.transparentColor),
             child: ExpansionTile(
               title: Text("تتبع الطلب"),
               children: [
-                TimelineTile(
-                  alignment: TimelineAlign.manual,
-                  lineXY: 0.1,
-                  isFirst: true,
-                  indicatorStyle: IndicatorStyle(
-                    width: 30,
-                    color: Colors.orange,
-                    iconStyle: IconStyle(
-                      iconData: Icons.check,
-                      color: Colors.white,
+                VerticalStepperAlternating(
+                  currentStep: 1,
+                  steps: [
+                    StepModel(
+                        title: 'تم قبول الطلب',
+                        subTitle: 'نقوم الآن بتجهيز الطلب لتحديد وقت الاستلام.',
+                        icon: Icons.check),
+                    StepModel(
+                        title: 'جارٍ تجهيز الطلب بواسطة السائق',
+                        subTitle:
+                            'بدأنا تجهيز طلبك. سيتم استلامه من قِبل السائق قريبًا.',
+                        icon: Icons.delivery_dining),
+                    StepModel(
+                      title: 'جاهز للتوصيل',
+                      subTitle: 'السائق في طريقه لتسليم طلبك.',
+                      icon: Icons.incomplete_circle,
                     ),
-                  ),
-                  endChild: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('تم قبول الطلب',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 4),
-                        Text('نقوم الآن بتجهيز الطلب لتحديد وقت الاستلام.'),
-                      ],
-                    ),
-                  ),
+                  ],
+                  completedColor: ColorManager.successColor,
+                  currentColor: ColorManager.notificationProgressColor,
+                  upcomingColor: ColorManager.notificationDateTimeGrayColor,
+                  titleColorActive: ColorManager.primaryColor,
+                  circleSize: 50.0,
                 ),
-
-                // الخطوة 2
-                TimelineTile(
-                  alignment: TimelineAlign.manual,
-                  lineXY: 0.9,
-                  indicatorStyle: IndicatorStyle(
-                    width: 30,
-                    color: Colors.orange,
-                    iconStyle: IconStyle(
-                      iconData: Icons.local_shipping,
-                      color: Colors.white,
-                    ),
-                  ),
-                  endChild: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('جارٍ تجهيز الطلب بواسطة السائق',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 4),
-                        Text('بدأنا تجهيز طلبك. سيتم استلامه من قِبل السائق قريبًا.'),
-                      ],
-                    ),
-                  ),
-                ),
-
-                // الخطوة 3
-                TimelineTile(
-                  alignment: TimelineAlign.manual,
-                  lineXY: 0.1,
-                  isLast: true,
-                  indicatorStyle: IndicatorStyle(
-                    width: 30,
-                    color: Colors.orange,
-                    iconStyle: IconStyle(
-                      iconData: Icons.delivery_dining,
-                      color: Colors.white,
-                    ),
-                  ),
-                  endChild: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text('جاهز للتوصيل',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                        SizedBox(height: 4),
-                        Text('السائق في طريقه لتسليم طلبك.'),
-                      ],
-                    ),
-                  ),
-                ),
+                8.h.height,
               ],
             ),
           ),
-
         ],
       ),
     );
