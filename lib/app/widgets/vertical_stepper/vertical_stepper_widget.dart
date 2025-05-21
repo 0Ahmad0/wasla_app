@@ -8,6 +8,9 @@ import 'dart:math';
 
 import 'package:wasla_app/core/style_manager.dart';
 
+import 'custom_line_widget.dart';
+import 'loading_dots_widget.dart';
+
 class VerticalStepperAlternating extends StatelessWidget {
   final List<StepModel> steps;
   final int currentStep;
@@ -144,114 +147,6 @@ class VerticalStepperAlternating extends StatelessWidget {
                 size: circleSize * 0.5,
               ),
       ),
-    );
-  }
-}
-
-class CustomLine extends StatelessWidget {
-  final Color color;
-  final bool isDashed;
-  final double height;
-
-  const CustomLine({
-    super.key,
-    required this.color,
-    required this.isDashed,
-    this.height = 40,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      child: CustomPaint(
-        painter: LinePainter(color: color, isDashed: isDashed),
-      ),
-    );
-  }
-}
-
-class LinePainter extends CustomPainter {
-  final Color color;
-  final bool isDashed;
-
-  LinePainter({required this.color, required this.isDashed});
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 1.75;
-
-    if (isDashed) {
-      const dashHeight = 5.0;
-      const dashSpace = 5.0;
-      double startY = 0;
-      while (startY < size.height) {
-        canvas.drawLine(Offset(size.width / 2, startY),
-            Offset(size.width / 2, startY + dashHeight), paint);
-        startY += dashHeight + dashSpace;
-      }
-    } else {
-      canvas.drawLine(Offset(size.width / 2, 0),
-          Offset(size.width / 2, size.height), paint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
-}
-
-class LoadingDots extends StatefulWidget {
-  const LoadingDots({super.key});
-
-  @override
-  State<LoadingDots> createState() => _LoadingDotsState();
-}
-
-class _LoadingDotsState extends State<LoadingDots>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller =
-        AnimationController(duration: const Duration(seconds: 1), vsync: this)
-          ..repeat();
-    _animation = Tween<double>(begin: 0, end: 3).animate(_controller);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _animation,
-      builder: (_, __) {
-        int dotCount = _animation.value.floor() + 1;
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(3, (index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 1),
-              child: Container(
-                width: 4,
-                height: 4,
-                decoration: BoxDecoration(
-                  color: index < dotCount ? Colors.white : Colors.transparent,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            );
-          }),
-        );
-      },
     );
   }
 }

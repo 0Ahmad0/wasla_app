@@ -8,6 +8,8 @@ import 'package:wasla_app/app/features/auth/views/reset_password_view.dart';
 import 'package:wasla_app/app/features/auth/views/signup_view.dart';
 import 'package:wasla_app/app/features/cart/bindings/cart_binding.dart';
 import 'package:wasla_app/app/features/cart/views/cart_view.dart';
+import 'package:wasla_app/app/features/check_out/bindings/check_out_binding.dart';
+import 'package:wasla_app/app/features/check_out/views/check_out_view.dart';
 import 'package:wasla_app/app/features/coupons/bindings/coupons_binding.dart';
 import 'package:wasla_app/app/features/coupons/views/coupons_view.dart';
 import 'package:wasla_app/app/features/customer_support/bindings/customer_support_binding.dart';
@@ -184,6 +186,10 @@ class AppPages {
       name: AppRoutes.pay,
       page: () => PayView(),
       binding: PayBinding(),
+    ),GetPage(
+      name: AppRoutes.checkOut,
+      page: () => CheckOutView(),
+      binding: CheckOutBinding(),
     ),
 
 

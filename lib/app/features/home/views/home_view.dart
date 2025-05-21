@@ -97,7 +97,6 @@ class HomeView extends GetView<HomeController> {
         return Stack(
           children: [
             CustomScrollView(
-              physics: const BouncingScrollPhysics(),
               slivers: [
                 SliverToBoxAdapter(
                   child: Column(
@@ -163,7 +162,6 @@ class HomeView extends GetView<HomeController> {
                       padding: EdgeInsets.symmetric(
                         horizontal: 10.w,
                       ),
-                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         final category = controller.categoriesList[index];

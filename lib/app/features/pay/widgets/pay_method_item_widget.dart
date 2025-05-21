@@ -20,9 +20,8 @@ class PayMethodItemWidget extends GetView<PayController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
-      final isSelected =
-          controller.selectedMethodIndex.value == index;
+    return Obx(() {
+      final isSelected = controller.selectedMethodIndex.value == index;
       return ListTile(
         dense: true,
         onTap: () => controller.selectMethod(index),
@@ -34,24 +33,24 @@ class PayMethodItemWidget extends GetView<PayController> {
             fontSize: 16,
           ),
         ),
-        subtitle: method.subtitle != null
-            ? Text(
-          method.subtitle!,
-          style: getLightStyle(
-              color: ColorManager.textSecondaryColor),
-        )
-            : null,
+        subtitle: Text(
+          method.subtitle ?? '',
+          style: getLightStyle(color: ColorManager.textSecondaryColor),
+        ),
         trailing: isSelected
             ? Icon(
-          Icons.check_circle,
-          color: ColorManager.primaryColor,
-          size: 34.r,
-        )
+                Icons.check_circle,
+                color: ColorManager.primaryColor,
+                size: 34.r,
+              )
             : null,
       );
     });
   }
-  Widget _buildIcon(String path,) {
+
+  Widget _buildIcon(
+    String path,
+  ) {
     if (path.toLowerCase().endsWith('.svg')) {
       return SvgPicture.asset(path);
     } else {

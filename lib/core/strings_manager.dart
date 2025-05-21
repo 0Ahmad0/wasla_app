@@ -261,4 +261,13 @@ class StringsManager {
   /// Payment Screen
   static const String payMethodText = 'طريقة الدفع';
   static const String addPaymentMethodText = 'أضف طريقة دفع جديدة';
+
+  /// Checkout Screen
+  static const String checkOutText = 'الدفع';
+  static const String payText = 'ادفع الآن';
+  static const String subtotalCheckOutText = 'المجموع الفرعي';
+  static const String deliveryChargesCheckOutText = 'رسوم التوصيل';
+  static const String couponDiscountCheckOutText = 'الخصم';
+  static const String totalCheckOutText = 'المبلغ الإجمالي';
+
 }

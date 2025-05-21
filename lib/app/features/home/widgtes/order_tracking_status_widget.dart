@@ -16,8 +16,9 @@ class OrderTrackingStatusWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10.w),
       decoration: BoxDecoration(
-          border: Border.all(
-              color: ColorManager.notificationDateTimeGrayColor, width: .5),
+        color: ColorManager.chatContainerColor,
+          // border: Border.all(
+          //     color: ColorManager.notificationDateTimeGrayColor, width: .5),
           borderRadius: BorderRadius.circular(8.r)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
