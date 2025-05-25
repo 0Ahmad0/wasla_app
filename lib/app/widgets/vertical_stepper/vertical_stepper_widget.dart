@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wasla_app/app/widgets/vertical_stepper/vertical_stepper_model.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
-import 'dart:math';
-
 import 'package:wasla_app/core/style_manager.dart';
 
 import 'custom_line_widget.dart';

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/splash/controllers/splash_controller.dart';
+
+import '../../../widgets/app_scaffold_widget.dart';
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
@@ -10,7 +12,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(SplashController());
     Get.lazyPut(() => SplashController());
-    return Scaffold(
+    return CustomScaffold(
       body: Stack(
         alignment: Alignment.center,
         children: [

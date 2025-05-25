@@ -1,12 +1,12 @@
-import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:wasla_app/core/assets_manager.dart';
-import 'package:http/http.dart' as http;
 
 import '../color_manager.dart';
 

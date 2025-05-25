@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/profile/controllers/profile_controller.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/strings_manager.dart';
 import 'circle_shape_profile_widget.dart';

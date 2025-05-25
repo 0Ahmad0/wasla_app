@@ -12,6 +12,7 @@ import '../../../../core/strings_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_button_widget.dart';
 import '../../../widgets/app_padding.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/app_textfield_widget.dart';
 import '../widget/auth_square_widget.dart';
 
@@ -20,7 +21,7 @@ class SignupView extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       body: Center(
         child: SingleChildScrollView(
           child: AppPadding(

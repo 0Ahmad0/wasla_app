@@ -14,7 +14,6 @@ class AssetsManager{
   static const String vector404IMG = '$_imagePath/404_vector.svg';
   static const String shapeDialogStarsIMG = '$_imagePath/shape_dialog_stars.svg';
   static const String coverShapeIconIMG = '$_imagePath/cover_shape_icon.svg';
-  static const String successPaymentIMG = '$_imagePath/success_payment.svg';
 
 
   static const String resetPasswordIcon = '$_iconPath/reset_password_icon.png';
@@ -26,6 +25,7 @@ class AssetsManager{
   static const String searchIcon = '$_iconPath/search_icon.svg';
   static const String profileIcon = '$_iconPath/profile_icon.svg';
   static const String notificationIcon = '$_iconPath/notification_icon.svg';
+  static const String myOrdersIcon = '$_iconPath/my_orders.svg';
   static const String homeIcon = '$_iconPath/home_icon.svg';
   static const String menuIcon = '$_iconPath/menu_icon.svg';
   static const String menuProfileIcon = '$_iconPath/menu_profile_icon.svg';
@@ -53,6 +53,10 @@ class AssetsManager{
   static const String barakeIcon = '$_iconPath/baraka.png';
   static const String syriatelCashIcon = '$_iconPath/syriatel_cash.png';
   static const String visaIcon = '$_iconPath/visa.svg';
+  static const checkCircleIcon = '$_iconPath/check_circle.svg';
+  static const waitingIcon = '$_iconPath/waiting.svg';
+  static const rejectedCircleIcon = '$_iconPath/rejected_circle.svg';
+  static const loadingIcon = '$_iconPath/loading.svg';
 
 
 
@@ -63,5 +67,7 @@ class AssetsManager{
   static const String sadIMG = '$_lottiePath/sad.json';
   static const String veryHappyIMG = '$_lottiePath/very_happy.json';
   static const String normalIMG = '$_lottiePath/normal.json';
+  static const String giftIMG = '$_lottiePath/gift.json';
+  static const String successPaymentIMG = '$_lottiePath/success.json';
 
 }

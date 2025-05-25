@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:wasla_app/app/features/home/controllers/home_controller.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/app/widgets/cached_network_image_widget.dart';

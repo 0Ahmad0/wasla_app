@@ -1,11 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vibration/vibration.dart';
-import 'package:wasla_app/app/features/about/views/about_view.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
 import '../../home/model/product_model.dart';

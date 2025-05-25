@@ -270,4 +270,11 @@ class StringsManager {
   static const String couponDiscountCheckOutText = 'الخصم';
   static const String totalCheckOutText = 'المبلغ الإجمالي';
 
+  /// My Orders Screen
+  static const String allText = 'الكل';
+  static const String acceptedText = 'المقبولة';
+  static const String pendingText = 'قيد الانتظار';
+  static const String rejectedText = 'المرفوضة';
+  static const String myOrdersText = 'طلباتي';
+
 }

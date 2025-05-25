@@ -1,13 +1,10 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/customer_support/controllers/customer_support_controller.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/app/widgets/app_textfield_widget.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';

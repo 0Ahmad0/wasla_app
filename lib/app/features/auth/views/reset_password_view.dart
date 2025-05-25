@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -7,14 +6,13 @@ import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/assets_manager.dart';
 import '../../../../core/color_manager.dart';
-import '../../../../core/routes/app_routes.dart';
 import '../../../../core/strings_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_bar_widget.dart';
 import '../../../widgets/app_button_widget.dart';
 import '../../../widgets/app_padding.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/app_textfield_widget.dart';
-import '../../../widgets/backbutton_widget.dart';
 import '../widget/auth_square_widget.dart';
 
 class ResetPasswordView extends GetView<AuthController> {
@@ -22,7 +20,7 @@ class ResetPasswordView extends GetView<AuthController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: StringsManager.resetPasswordText,
       ),

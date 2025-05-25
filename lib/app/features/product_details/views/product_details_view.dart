@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/product_details/controllers/product_details_controller.dart';
 import 'package:wasla_app/app/features/product_details/widgets/floating_button_widget.dart';
-import 'package:wasla_app/app/features/product_details/widgets/quantity_button_widget.dart';
 import 'package:wasla_app/app/features/product_details/widgets/rating_overview_widget.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/app/widgets/cached_network_image_widget.dart';
-import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/style_manager.dart';
 import 'package:wasla_app/core/utils/share_helper.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../home/model/product_model.dart';
 import '../widgets/quantity_and_total_price_widget.dart';
 import '../widgets/show_product_image_widget.dart';
@@ -28,7 +24,7 @@ class ProductDetailsView extends GetView<ProductDetailsController> {
   @override
   Widget build(BuildContext context) {
     final ProductModel product = controller.product!;
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: product.name,
       ),

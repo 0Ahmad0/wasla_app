@@ -4,6 +4,7 @@ import 'package:wasla_app/app/features/favorite/controllers/favorite_controller.
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../home/widgtes/product_item_widget.dart';
 
 class FavoriteView extends GetView<FavoriteController> {
@@ -11,7 +12,7 @@ class FavoriteView extends GetView<FavoriteController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: StringsManager.favoriteText,
       ),

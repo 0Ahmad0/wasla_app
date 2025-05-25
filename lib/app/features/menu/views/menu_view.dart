@@ -7,6 +7,7 @@ import 'package:wasla_app/core/extension/space_ext.dart';
 import '../../../../core/strings_manager.dart';
 import '../../../widgets/app_bar_widget.dart';
 import '../../../widgets/app_padding.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../controllers/menu_controller.dart';
 import '../widgets/menu_containet_widget.dart';
 
@@ -16,7 +17,7 @@ class MenuView extends GetView<MenuAppController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => MenuAppController());
-    return Scaffold(
+    return CustomScaffold(
       appBar: const AppBarWidget(
         title: StringsManager.muneText,
       ),

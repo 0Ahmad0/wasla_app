@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
 import '../../../../core/color_manager.dart';
-import '../../../../core/strings_manager.dart';
 
 var _borderTextFiled = ({Color color = ColorManager.primaryColor}) =>
     OutlineInputBorder(

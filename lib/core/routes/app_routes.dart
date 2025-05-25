@@ -27,6 +27,8 @@ abstract class AppRoutes {
   static const cart = '/cart';
   static const pay = '/pay';
   static const checkOut = '/checkOut';
+  static const myOrders = '/myOrders';
+
 
 
 

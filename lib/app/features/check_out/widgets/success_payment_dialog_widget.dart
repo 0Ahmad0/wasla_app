@@ -1,10 +1,9 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/about/controllers/about_controller.dart';
+import 'package:lottie/lottie.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
@@ -38,12 +37,11 @@ class SuccessPaymentDialogWidget extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       8.h.height,
-                      SvgPicture.asset(
+                      Lottie.asset(
                         AssetsManager.successPaymentIMG,
-                        width: double.maxFinite,
-                        height: 150.h,
-                        fit: BoxFit.cover,
-                      ).zoomIn(),
+                        width: 300.sp,
+                        height: 300.sp
+                      ),
                       8.h.height,
                       Text(
                         'شكرًا لطلبك🫶',
@@ -70,7 +68,6 @@ class SuccessPaymentDialogWidget extends StatelessWidget {
                         ).fadeInUp(),
                       ),
                       10.h.height,
-
                     ],
                   ),
                 ),

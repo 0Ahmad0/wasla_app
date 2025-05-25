@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasla_app/app/features/about/views/about_view.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
 class SwipeItemWidget extends StatelessWidget {

@@ -127,6 +127,7 @@ dependencies:
 
   #For Launch Url, email, phone, whatsapp, ...etc From Link
   url_launcher: ^6.3.1
+  confetti: ^0.8.0
 
 
 

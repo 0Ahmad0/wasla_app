@@ -5,12 +5,11 @@ import 'package:wasla_app/app/features/coupons/controllers/coupons_controller.da
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/color_manager.dart';
-import 'package:wasla_app/core/const_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
-import '../../../widgets/backbutton_widget.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../widgets/coupon_item_widget.dart';
 
 class CouponsView extends GetView<CouponsController> {
@@ -18,7 +17,7 @@ class CouponsView extends GetView<CouponsController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: StringsManager.couponsText,
       ),

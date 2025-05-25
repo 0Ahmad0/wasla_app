@@ -4,10 +4,10 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../core/color_manager.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/backbutton_widget.dart';
 import '../controllers/media_viewer_controller.dart';
 import '../enum/media_type.dart';
@@ -17,7 +17,8 @@ class MediaViewerView extends GetView<MediaViewerController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
+      backgroundColor: ColorManager.blackColor,
       appBar: AppBar(
         leading: Padding(
           padding: EdgeInsets.all(8.sp),
@@ -25,7 +26,6 @@ class MediaViewerView extends GetView<MediaViewerController> {
         ),
         backgroundColor: ColorManager.blackColor,
       ),
-      backgroundColor: ColorManager.blackColor,
       body: Obx(() => PageView.builder(
         controller: controller.pageController,
         onPageChanged: controller.onPageChanged,

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/customer_support/controllers/customer_support_controller.dart';
 import 'package:wasla_app/app/features/customer_support/models/message_model.dart';
 import 'package:wasla_app/core/assets_manager.dart';
@@ -17,7 +16,6 @@ import 'package:wasla_app/core/style_manager.dart';
 import '../enum/media_type.dart';
 import '../enum/message_type.dart';
 import '../models/media_item_model.dart';
-import '../views/media_viewer_view.dart';
 
 class MessageContentWidget extends GetView<CustomerSupportController> {
   const MessageContentWidget({super.key, required this.message});

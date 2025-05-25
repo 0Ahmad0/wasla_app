@@ -1,14 +1,5 @@
 import 'package:get/get.dart';
 import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/strings_manager.dart';
 
 import '../model/faqs_model.dart';
 

@@ -14,13 +14,14 @@ import 'package:wasla_app/core/strings_manager.dart';
 import '../../../../core/color_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_button_widget.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 
 class LoginView extends GetView<AuthController> {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       body: Center(
         child: SingleChildScrollView(
           child: AppPadding(

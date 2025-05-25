@@ -1,19 +1,19 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
+
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
+import 'package:get/get.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:wasla_app/app/features/customer_support/models/message_model.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wechat_assets_picker/wechat_assets_picker.dart';
+
 import '../enum/media_type.dart';
 import '../enum/message_type.dart';
-import 'package:just_audio/just_audio.dart';
-
 import '../models/media_item_model.dart';
 
 class CustomerSupportController extends GetxController {

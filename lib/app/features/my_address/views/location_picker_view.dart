@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
-import 'package:wasla_app/core/strings_manager.dart';
 
 import '../../../../core/color_manager.dart';
 import '../../../../core/style_manager.dart';

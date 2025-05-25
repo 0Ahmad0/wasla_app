@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 
 import '../controllers/settings_controller.dart';

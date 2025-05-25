@@ -9,12 +9,14 @@ import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
+
 class MyAddressView extends GetView<MyAddressController> {
   const MyAddressView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: const AppBarWidget(
         title: StringsManager.myAddressText,
       ),

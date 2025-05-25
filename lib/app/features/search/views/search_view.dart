@@ -4,12 +4,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/app/widgets/app_textfield_widget.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/style_manager.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../home/widgtes/product_item_widget.dart';
 import '../controllers/search_controller.dart';
 import 'app_search_textfield.dart';

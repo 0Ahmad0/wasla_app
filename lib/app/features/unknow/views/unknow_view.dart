@@ -4,11 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/app/widgets/backbutton_widget.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
@@ -16,12 +14,14 @@ import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
+
 class UnKnowView extends StatelessWidget {
   const UnKnowView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       backgroundColor: ColorManager.unKnowBackgroundColor,
       appBar: AppBarWidget(
         title: StringsManager.pageNotFoundText,

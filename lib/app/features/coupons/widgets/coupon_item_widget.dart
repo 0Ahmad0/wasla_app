@@ -3,13 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/coupons/controllers/coupons_controller.dart';
-import 'package:wasla_app/app/widgets/app_button_widget.dart';
+import 'package:wasla_app/app/features/coupons/widgets/success_applied_coupon_dialog_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
-import 'package:wasla_app/core/extension/space_ext.dart';
+import 'package:wasla_app/core/dialogs/app_dialog.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
@@ -77,7 +76,14 @@ class CouponItemWidget extends GetView<CouponsController> {
               Divider(color: ColorManager.whiteColor),
               const Spacer(),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.showFireworks();
+                  AppDialog(
+                    widget: SuccessAppliedCouponDialogWidget(
+                      discount: discount,
+                    ),
+                  ).showAppDialog(context);
+                },
                 child: Text(
                   StringsManager.useText,
                   style: getRegularStyle(
@@ -93,7 +99,6 @@ class CouponItemWidget extends GetView<CouponsController> {
       ),
     );
   }
-
 }
 
 //************

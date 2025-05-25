@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/home/model/product_model.dart';
 import 'package:wasla_app/app/features/product_details/controllers/product_details_controller.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
@@ -10,10 +9,8 @@ import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/color_manager.dart';
-import '../../../../core/strings_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_textfield_widget.dart';
-import '../../users_reviews/model/user_review_model.dart';
 import '../model/product_review_model.dart';
 
 class BottomSheetAddYourRateWidget extends GetView<ProductDetailsController> {

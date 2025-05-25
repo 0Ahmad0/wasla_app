@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/cart/controllers/cart_controller.dart';
-import 'package:wasla_app/app/features/product_details/controllers/product_details_controller.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 
 import '../../../../core/color_manager.dart';

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/features/pay/controllers/pay_controller.dart';
-import 'package:wasla_app/app/features/pay/model/payment_method_model.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/strings_manager.dart';
-import 'package:wasla_app/core/style_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../widgets/pay_method_item_widget.dart';
 
 class PayView extends GetView<PayController> {
@@ -18,7 +16,7 @@ class PayView extends GetView<PayController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: StringsManager.payMethodText,
         actions: [

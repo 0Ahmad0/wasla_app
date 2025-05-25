@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wasla_app/app/features/onboarding/views/onboarding_view.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
 class AuthSquareWidget extends StatelessWidget {

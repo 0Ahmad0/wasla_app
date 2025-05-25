@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
-import 'package:photo_manager/photo_manager.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/widgets/app_bar_widget.dart';
 import 'package:wasla_app/app/widgets/app_button_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
@@ -13,8 +10,6 @@ import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/style_manager.dart';
 import '../controllers/my_address_controller.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class LocationDialogPickerWidget extends GetView<MyAddressController> {
   const LocationDialogPickerWidget({super.key});

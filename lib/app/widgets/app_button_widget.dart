@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
-import '../../core/color_manager.dart';
-
 class AppButtonWidget extends StatelessWidget {
   const AppButtonWidget(
       {super.key,

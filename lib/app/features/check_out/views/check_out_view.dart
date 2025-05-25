@@ -12,6 +12,7 @@ import 'package:wasla_app/core/routes/app_routes.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../widgets/checkout_title_widget.dart';
 import '../widgets/confirm_pay_dialog_widget.dart';
 
@@ -20,7 +21,7 @@ class CheckOutView extends GetView<CheckOutController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: const AppBarWidget(
         title: StringsManager.checkOutText,
       ),

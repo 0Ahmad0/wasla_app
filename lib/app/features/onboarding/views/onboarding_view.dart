@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/color_manager.dart';
-import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../controllers/onboarding_controller.dart';
 import '../widgets/onboarding_item.dart';
 
@@ -15,7 +14,7 @@ class OnboardingView extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       body: Obx(() => Stack(
             children: [
               PageView.builder(

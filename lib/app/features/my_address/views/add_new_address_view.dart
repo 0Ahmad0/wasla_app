@@ -11,6 +11,7 @@ import 'package:wasla_app/app/widgets/app_padding.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/app_textfield_widget.dart';
 import '../model/my_address_model.dart';
 
@@ -28,7 +29,7 @@ class AddNewAddressView extends GetView<MyAddressController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: const AppBarWidget(
         title: StringsManager.addNewAddressText,
       ),

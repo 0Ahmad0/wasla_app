@@ -12,15 +12,15 @@ import 'package:wasla_app/core/strings_manager.dart';
 import '../../../../core/style_manager.dart';
 import '../../../widgets/app_bar_widget.dart';
 import '../../../widgets/app_button_widget.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/app_textfield_widget.dart';
-import '../../../widgets/backbutton_widget.dart';
 
 class ForgetPasswordView extends GetView<AuthController> {
   const ForgetPasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       appBar: AppBarWidget(
         title: StringsManager.forgetPasswordText,
       ),

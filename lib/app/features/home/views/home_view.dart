@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:wasla_app/app/features/auth/views/forget_password_view.dart';
 import 'package:wasla_app/app/features/home/widgtes/carousel_home_item_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/category_item_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/custom_home_appbar.dart';
 import 'package:wasla_app/app/features/home/widgtes/order_tracking_status_widget.dart';
 import 'package:wasla_app/app/features/home/widgtes/product_item_widget.dart';
 import 'package:wasla_app/app/widgets/app_padding.dart';
-import 'package:wasla_app/core/assets_manager.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 import 'package:wasla_app/core/strings_manager.dart';
 import 'package:wasla_app/core/style_manager.dart';
+
 import '../../../../core/routes/app_routes.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -24,67 +24,7 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     // Get.lazyPut(() => HomeController());
-    return Scaffold(
-      appBar: CustomHomeAppbar(
-        height: 150,
-        childW: AppPadding(
-          vPadding: 0,
-          hPadding: 16,
-          child: Column(
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      10.h.height,
-                      Text(
-                        StringsManager.welcomeText,
-                        style: getMediumStyle(
-                            color: ColorManager.whiteColor, fontSize: 16),
-                      ),
-                      4.h.height,
-                      SizedBox(
-                        width: MediaQuery.sizeOf(context).width / 1.5,
-                        child: Text(
-                          'أحمد الحريري 😎',
-                          maxLines: 1,
-                          style: getBoldStyle(
-                              fontSize: 22, color: ColorManager.whiteColor),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      InkWell(
-                        borderRadius: BorderRadius.circular(100.r),
-                        onTap: () => Get.toNamed(AppRoutes.profile),
-                        child: CircleAvatar(
-                          radius: 26.sp,
-                          backgroundImage: const AssetImage(
-                            'assets/images/img.png',
-                          ),
-                        ),
-                      ),
-                      10.w.width,
-                      InkWell(
-                        onTap: () => Get.toNamed(AppRoutes.notification),
-                        child: const Icon(
-                          Icons.notifications,
-                          color: ColorManager.whiteColor,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+    return CustomScaffold(
       body: LayoutBuilder(builder: (context, constraints) {
         if (controller.fabPosition.value == Offset.zero) {
           controller.setInitialPosition(
@@ -98,6 +38,86 @@ class HomeView extends GetView<HomeController> {
           children: [
             CustomScrollView(
               slivers: [
+                SliverAppBar(
+                  expandedHeight: 56.h,
+                  pinned: true,
+                  floating: true,
+                  snap: false,
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  foregroundColor: Colors.transparent,
+                  scrolledUnderElevation: 0.0,
+                  surfaceTintColor: Colors.transparent,
+
+                  flexibleSpace: FlexibleSpaceBar(
+                    collapseMode: CollapseMode.parallax,
+                    background: CustomHomeAppbar(
+                      height: 150.h,
+                      childW: AppPadding(
+                        vPadding: 0,
+                        hPadding: 16,
+                        child: Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(height: 10),
+                                    Text(
+                                      StringsManager.welcomeText,
+                                      style: getMediumStyle(
+                                          color: ColorManager.whiteColor,
+                                          fontSize: 16),
+                                    ),
+                                    SizedBox(height: 4),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          1.5,
+                                      child: Text(
+                                        'أحمد الحريري 😎',
+                                        maxLines: 1,
+                                        style: getBoldStyle(
+                                            fontSize: 22,
+                                            color: ColorManager.whiteColor),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    InkWell(
+                                      borderRadius: BorderRadius.circular(100),
+                                      onTap: () =>
+                                          Get.toNamed(AppRoutes.profile),
+                                      child: CircleAvatar(
+                                        radius: 26,
+                                        backgroundImage: const AssetImage(
+                                          'assets/images/img.png',
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10),
+                                    InkWell(
+                                      onTap: () =>
+                                          Get.toNamed(AppRoutes.notification),
+                                      child: const Icon(
+                                        Icons.notifications,
+                                        color: ColorManager.whiteColor,
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: Column(
                     children: [
@@ -147,7 +167,6 @@ class HomeView extends GetView<HomeController> {
                           children: [
                             OrderTrackingStatusWidget(),
                             8.h.height,
-
                           ],
                         ),
                       )

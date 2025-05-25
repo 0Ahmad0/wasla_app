@@ -9,6 +9,7 @@ class AppDialog {
 
   Future<bool?> showAppDialog(BuildContext context) {
     return showDialog(
+      useSafeArea: false,
       context: context,
       builder: (context) => widget ?? const SizedBox.shrink(),
     );

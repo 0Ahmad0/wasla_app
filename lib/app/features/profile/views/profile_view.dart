@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -17,8 +15,8 @@ import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/strings_manager.dart';
 import '../../../widgets/app_bar_widget.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../../../widgets/app_textfield_widget.dart';
-import '../../../widgets/backbutton_widget.dart';
 
 class ProfileView extends GetView<ProfileController> {
   const ProfileView({super.key});
@@ -26,7 +24,7 @@ class ProfileView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     // Get.lazyPut(() => ProfileController());
-    return Scaffold(
+    return CustomScaffold(
       appBar: const AppBarWidget(
         title: StringsManager.profileText,
       ),

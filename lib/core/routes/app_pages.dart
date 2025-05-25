@@ -26,6 +26,8 @@ import 'package:wasla_app/app/features/menu/bindings/menu_binding.dart';
 import 'package:wasla_app/app/features/menu/views/menu_view.dart';
 import 'package:wasla_app/app/features/my_address/bindings/my_address_binding.dart';
 import 'package:wasla_app/app/features/my_address/views/my_address_view.dart';
+import 'package:wasla_app/app/features/my_orders/bindings/my_orders_binding.dart';
+import 'package:wasla_app/app/features/my_orders/views/my_orders_view.dart';
 import 'package:wasla_app/app/features/navbar/bindings/navbar_binding.dart';
 import 'package:wasla_app/app/features/navbar/views/navbar_view.dart';
 import 'package:wasla_app/app/features/notifications/bindings/notification_binding.dart';
@@ -41,6 +43,7 @@ import 'package:wasla_app/app/features/search/views/search_view.dart';
 import 'package:wasla_app/app/features/unknow/views/unknow_view.dart';
 import 'package:wasla_app/app/features/users_reviews/bindings/users_reviews_binding.dart';
 import 'package:wasla_app/app/features/users_reviews/views/users_reviews_view.dart';
+
 import '../../app/features/about/bindings/about_binding.dart';
 import '../../app/features/my_address/views/add_new_address_view.dart';
 import '../../app/features/onboarding/bindings/onboarding_binding.dart';
@@ -95,7 +98,7 @@ class AppPages {
         HomeBinding().dependencies();
         MenuBinding().dependencies();
         SearchBinding().dependencies();
-        NotificationBinding().dependencies();
+        MyOrdersBinding().dependencies();
         ProfileBinding().dependencies();
       }),
     ),
@@ -190,6 +193,11 @@ class AppPages {
       name: AppRoutes.checkOut,
       page: () => CheckOutView(),
       binding: CheckOutBinding(),
+    ),
+GetPage(
+      name: AppRoutes.myOrders,
+      page: () => MyOrdersView(),
+      binding: MyOrdersBinding(),
     ),
 
 

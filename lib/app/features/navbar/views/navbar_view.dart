@@ -1,11 +1,11 @@
 import 'package:bottom_bar_matu/bottom_bar_matu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/home/views/home_view.dart';
 import 'package:wasla_app/core/color_manager.dart';
 
-import '../../home/controllers/home_controller.dart';
+import '../../../widgets/app_scaffold_widget.dart';
 import '../controllers/navbar_controller.dart';
 
 class NavbarView extends GetView<NavbarController> {
@@ -13,7 +13,7 @@ class NavbarView extends GetView<NavbarController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       body: Obx(
         () => controller.pages[controller.index.value],
       ),
@@ -31,7 +31,6 @@ class NavbarView extends GetView<NavbarController> {
                   (e) => BottomBarItem(
                     iconBuilder: (_) => SvgPicture.asset(
                       e,
-
                       colorFilter: ColorFilter.mode(_, BlendMode.srcIn),
                       clipBehavior: Clip.antiAliasWithSaveLayer,
                     ),

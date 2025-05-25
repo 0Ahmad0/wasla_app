@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:wasla_app/app/features/about/views/about_view.dart';
 import 'package:wasla_app/app/features/cart/controllers/cart_controller.dart';
 import 'package:wasla_app/app/features/cart/widgets/swipe_item_widget.dart';
 import 'package:wasla_app/app/features/home/model/product_model.dart';
 import 'package:wasla_app/app/widgets/cached_network_image_widget.dart';
 import 'package:wasla_app/core/color_manager.dart';
 import 'package:wasla_app/core/dialogs/app_dialog.dart';
-import 'package:wasla_app/core/dialogs/general_dialog.dart';
 import 'package:wasla_app/core/extension/space_ext.dart';
 
 import '../../../../core/style_manager.dart';
