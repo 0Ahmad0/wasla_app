@@ -25,113 +25,118 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     // Get.lazyPut(() => ProfileController());
     return CustomScaffold(
-      appBar: const AppBarWidget(
-        title: StringsManager.profileText,
-      ),
-      body: SingleChildScrollView(
-        child: AppPadding(
-          vPadding: 10,
-          child: Form(
-            key: controller.profileFormKey,
-            child: Column(
-              children: [
-                Stack(
-                  clipBehavior: Clip.none,
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            child: AppPadding(
+              vPadding: 10,
+              child: Form(
+                key: controller.profileFormKey,
+                child: Column(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(14.sp),
-                      decoration: BoxDecoration(
-                          color: ColorManager.whiteColor,
-                          shape: BoxShape.circle,
-                          boxShadow: [
-                            BoxShadow(
-                                color: ColorManager.blackColor.withOpacity(.16),
-                                blurRadius: 16.sp,
-                                spreadRadius: 0,
-                                offset: Offset.zero)
-                          ]),
-                      child: Obx(() => controller.selectedImage.value == null
-                          ? CircleAvatar(
-                              backgroundColor:
-                                  ColorManager.secondaryColor.withOpacity(.25),
-                              radius: 60.sp,
-                              child: SvgPicture.asset(
-                                AssetsManager.profileIcon,
-                                width: 34.sp,
-                                height: 34.sp,
-                              ),
-                            )
-                          : CircleAvatar(
-                              backgroundColor:
-                                  ColorManager.secondaryColor.withOpacity(.25),
-                              radius: 60.sp,
-                              backgroundImage:
-                                  FileImage(controller.selectedImage.value!),
-                            )),
-                    ),
-                    PositionedDirectional(
-                      bottom: 0,
-                      child: CircleAvatar(
-                        backgroundColor: ColorManager.primaryColor,
-                        child: IconButton(
-                            onPressed: () => AppBottomSheet(
-                                    widget: const BottomSheetProfileWidget())
-                                .showAppBottomSheet(context),
-                            icon: Icon(
-                              Icons.add_a_photo_outlined,
+                    70.h.height,
+                    Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.all(14.sp),
+                          decoration: BoxDecoration(
                               color: ColorManager.whiteColor,
-                              size: 20.sp,
-                            )),
-                      ),
-                    )
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: ColorManager.blackColor.withOpacity(.16),
+                                    blurRadius: 16.sp,
+                                    spreadRadius: 0,
+                                    offset: Offset.zero)
+                              ]),
+                          child: Obx(() => controller.selectedImage.value == null
+                              ? CircleAvatar(
+                                  backgroundColor:
+                                      ColorManager.secondaryColor.withOpacity(.25),
+                                  radius: 60.sp,
+                                  child: SvgPicture.asset(
+                                    AssetsManager.profileIcon,
+                                    width: 34.sp,
+                                    height: 34.sp,
+                                  ),
+                                )
+                              : CircleAvatar(
+                                  backgroundColor:
+                                      ColorManager.secondaryColor.withOpacity(.25),
+                                  radius: 60.sp,
+                                  backgroundImage:
+                                      FileImage(controller.selectedImage.value!),
+                                )),
+                        ),
+                        PositionedDirectional(
+                          bottom: 0,
+                          child: CircleAvatar(
+                            backgroundColor: ColorManager.primaryColor,
+                            child: IconButton(
+                                onPressed: () => AppBottomSheet(
+                                        widget: const BottomSheetProfileWidget())
+                                    .showAppBottomSheet(context),
+                                icon: Icon(
+                                  Icons.add_a_photo_outlined,
+                                  color: ColorManager.whiteColor,
+                                  size: 20.sp,
+                                )),
+                          ),
+                        )
+                      ],
+                    ),
+                    10.h.height,
+                    AppTextField(
+                      controller: controller.fullNameController,
+                      hintText: StringsManager.fullNameText,
+                      keyboardType: TextInputType.name,
+                      validator: controller.validateFullName,
+                    ),
+                    8.h.height,
+                    AppTextField(
+                      controller: controller.usernameController,
+                      hintText: StringsManager.userNameText,
+                      keyboardType: TextInputType.name,
+                      validator: controller.validateUsername,
+                    ),
+                    8.h.height,
+                    AppTextField(
+                      controller: controller.emailController,
+                      hintText: StringsManager.emailText,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: controller.validateEmail,
+                    ),
+                    8.h.height,
+                    AppTextField(
+                      controller: controller.phoneController,
+                      hintText: StringsManager.phoneText,
+                      keyboardType: TextInputType.phone,
+                      validator: controller.validatePhone,
+                    ),
+                    16.h.height,
+                    AppButtonWidget(
+                      text: StringsManager.saveChangesText,
+                      onPressed: controller.editProfile,
+                    ),
+                    16.h.height,
+                    AppButtonWidget(
+                      text: StringsManager.deleteAccountText,
+                      onPressed: () {
+                        AppDialog(widget: const DeleteAccountDialogWidget())
+                            .showAppDialog(context);
+                      },
+                      backgroundColor: ColorManager.errorColor,
+                    ),
                   ],
                 ),
-                10.h.height,
-                AppTextField(
-                  controller: controller.fullNameController,
-                  hintText: StringsManager.fullNameText,
-                  keyboardType: TextInputType.name,
-                  validator: controller.validateFullName,
-                ),
-                8.h.height,
-                AppTextField(
-                  controller: controller.usernameController,
-                  hintText: StringsManager.userNameText,
-                  keyboardType: TextInputType.name,
-                  validator: controller.validateUsername,
-                ),
-                8.h.height,
-                AppTextField(
-                  controller: controller.emailController,
-                  hintText: StringsManager.emailText,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: controller.validateEmail,
-                ),
-                8.h.height,
-                AppTextField(
-                  controller: controller.phoneController,
-                  hintText: StringsManager.phoneText,
-                  keyboardType: TextInputType.phone,
-                  validator: controller.validatePhone,
-                ),
-                16.h.height,
-                AppButtonWidget(
-                  text: StringsManager.saveChangesText,
-                  onPressed: controller.editProfile,
-                ),
-                16.h.height,
-                AppButtonWidget(
-                  text: StringsManager.deleteAccountText,
-                  onPressed: () {
-                    AppDialog(widget: const DeleteAccountDialogWidget())
-                        .showAppDialog(context);
-                  },
-                  backgroundColor: ColorManager.errorColor,
-                ),
-              ],
+              ),
             ),
           ),
-        ),
+          const AppBarWidget(
+            title: StringsManager.profileText,
+          )
+        ],
       ),
     );
   }
